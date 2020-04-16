@@ -36,5 +36,5 @@ class Proyecto(models.Model):
     fecha_fin = models.DateField()
     presupuesto = models.IntegerField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    tareas = models.ManyToManyField(Tarea,)
+    tareas = models.ManyToManyField(Tarea)
     empleados = models.ManyToManyField(Empleado)
