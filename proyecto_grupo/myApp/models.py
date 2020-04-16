@@ -10,7 +10,7 @@ class Empleado(models.Model):
     apellidos = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     telefono = models.IntegerField()
-    estado = models.BooleanField(choices=CHOICE_estado_empleado)
+    estado = models.IntegerField(choices=CHOICE_estado_empleado)
 
 class Tarea(models.Model):
     nombre = models.CharField(max_length=100)
@@ -18,8 +18,8 @@ class Tarea(models.Model):
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     responsable = models.ManyToManyField(Empleado)
-    prioridad = models.CharField(max_length=100, choices=CHOICE_prioridad)
-    estado = models.CharField(max_length=100, choices=CHOICE_estado_tarea)
+    prioridad = models.IntegerField(choices=CHOICE_prioridad)
+    estado = models.IntegerField(choices=CHOICE_estado_tarea)
     notas = models.CharField(max_length=10000)
 
 class Cliente(models.Model):
@@ -36,5 +36,5 @@ class Proyecto(models.Model):
     fecha_fin = models.DateField()
     presupuesto = models.IntegerField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    tareas = models.ManyToManyField(Tarea)
+    tareas = models.ManyToManyField(Tarea,)
     empleados = models.ManyToManyField(Empleado)
