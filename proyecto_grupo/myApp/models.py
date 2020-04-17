@@ -20,14 +20,14 @@ class Tarea(models.Model):
     responsable = models.ManyToManyField(Empleado)
     prioridad = models.IntegerField(choices=CHOICE_prioridad)
     estado = models.IntegerField(choices=CHOICE_estado_tarea)
-    notas = models.CharField(max_length=10000)
+    notas = models.CharField(max_length=10000, blank=True)
 
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
     empresa = models.CharField(max_length=100)
     telefono = models.IntegerField()
     email = models.EmailField(max_length=100)
-    datos_adicionales = models.CharField(max_length=1000)
+    datos_adicionales = models.CharField(max_length=1000, blank = True)
 
 class Proyecto(models.Model):
     nombre = models.CharField(max_length=100)
