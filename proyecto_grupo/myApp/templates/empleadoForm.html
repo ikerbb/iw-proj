@@ -5,7 +5,7 @@
     <title>Registro de empleado</title>
 </head>
 <body>
-    <form action="{% url 'registroEmpleado' %}" method="post">
+    <form action="{% url 'registrarEmpleado' %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Enviar">
