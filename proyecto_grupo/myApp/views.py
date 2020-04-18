@@ -104,7 +104,15 @@ class ClientesDetailView(DetailView):
     model = Cliente
     template_name = "clientesDetailView.html"
 
+
+
     def get_context_data(self, **kwargs):
         context = super(ClientesDetailView, self).get_context_data(**kwargs)
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
+<<<<<<< Updated upstream
+=======
+
+
+
+>>>>>>> Stashed changes
