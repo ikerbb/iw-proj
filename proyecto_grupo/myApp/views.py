@@ -5,11 +5,24 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import DetailView, ListView
 from .models import Proyecto, Empleado, Tarea, Cliente
+from .forms import empleadoForm
+
+#def showEmpleadoForm(request):
+#   return render(request, 'registro.html')
 
 
-def index(request):
-    return HttpResponse("Texto de prueba")
+def postEmpleadoForm(request):
+   dni = request.POST['dni']
+   nombre = request.POST['nombre']
+   apellidos = request.POST['apellidos']
+   email = request.POST['email']
+   telefono = request.POST['telefono']
+   estado = request.POST['estado']
+   return HttpResponse(f'DNI:{dni} -- Nombre:{nombre} -- Apellidos:{apellidos} -- Email:{email} -- Telefono:{telefono} -- Estado:{estado}')
 
+def showEmpleadoForm(request):
+    form = empleadoForm()
+    return render(request, "empleadoForm.html", {'form': form})
 
 class EmpleadosListView(ListView):
     model = Empleado
@@ -95,5 +108,3 @@ class ClientesDetailView(DetailView):
         context = super(ClientesDetailView, self).get_context_data(**kwargs)
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
-
-

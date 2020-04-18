@@ -2,14 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registro de usuario</title>
+    <title>Registro de empleado</title>
 </head>
 <body>
-    <p> Introduce tus datos: </p>
-    Nombre: <input type="text">
-    Apellidos: <input type="text">
-    Fecha de nacimiento: <input type="date">
-    Email: <input type="email">
-    ID trabajador: <input type="number">
+    <form action="{% url 'registrarEmpleado' %}" method="post">
+        {% csrf_token %}
+        <p>
+            <label> DNI </label>
+            <input type="text" name="dni">
+        </p>
+        <p>
+            <label> Nombre </label>
+            <input type="text" name="nombre">
+        </p>
+        <p>
+            <label> Apellidos </label>
+            <input type="text" name="apellidos">
+        </p>
+        <p>
+            <label> Email </label>
+            <input type="email" name="email">
+        </p>
+        <p>
+            <label> Telefono </label>
+            <input type="number" name="telefono">
+        </p>
+        <p>
+            <label> Estado </label>
+            <input type="text" name="estado">
+        </p>
+        <p>
+            <input type="submit" name="registrar">
+        </p>
+    </form>
 </body>
 </html>
