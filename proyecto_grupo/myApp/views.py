@@ -110,4 +110,13 @@ class ClientesDetailView(DetailView):
         context = super(ClientesDetailView, self).get_context_data(**kwargs)
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
+<<<<<<< HEAD
 
+=======
+<<<<<<< Updated upstream
+=======
+
+
+
+>>>>>>> Stashed changes
+>>>>>>> master
