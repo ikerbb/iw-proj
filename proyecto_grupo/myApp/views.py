@@ -9,19 +9,6 @@ from .models import Proyecto, Empleado, Tarea, Cliente
 from .forms import empleadoForm
 
 
-def showEmpleadoForm(request):
-    form = empleadoForm()
-    return render(request, "empleadoForm.html", {'form': form})
-
-def postEmpleadoForm(request):
-   dni = request.POST['dni']
-   nombre = request.POST['nombre']
-   apellidos = request.POST['apellidos']
-   email = request.POST['email']
-   telefono = request.POST['telefono']
-   estado = request.POST['estado']
-   return HttpResponse(f'DNI:{dni} -- Nombre:{nombre} -- Apellidos:{apellidos} -- Email:{email} -- Telefono:{telefono} -- Estado:{estado}')
-
 def showInicio(request):
     return render(request, "index.html")
 
@@ -49,7 +36,7 @@ class CreateEmpleadosView(View):
     def get(self, request, *args, **kwargs):
         form = empleadoForm()
         context = {
-
+            'form':form
         }
         return render(request, 'empleadoForm.html', context)
 
@@ -67,7 +54,7 @@ class CreateEmpleadosView(View):
 
             form.save()
 
-            return redirect('empleado')
+            return redirect('empleados')
 
         return render('empleadoForm', {'form':form})
 
@@ -97,29 +84,31 @@ class ProyectosDetailView(DetailView):
 
 class CreateProyectoView(View):
     def get(self, request, *args, **kwargs):
-        form = empleadoForm()
+        form = gestionar_proyecto
         context = {
 
         }
-        return render(request, 'empleadoForm.html', context)
+        return render(request, 'gestionar_proyecto.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = empleadoForm(request.POST)
+        form = gestionar_proyecto(request.POST)
         if form.is_valid():
-            empleado = Empleado()
-            empleado.dni = form.cleaned_data['dni']
-            empleado.nombre = form.cleaned_data['nombre']
-            empleado.apellidos = form.cleaned_data['apellidos']
-            empleado.email = form.cleaned_data['email']
-            empleado.telefono = form.cleaned_data['telefono']
-            empleado.estado = form.cleaned_data['estado']
-            empleado.save()
+            proyecto = Proyecto
+            proyecto.nombre = form.cleaned_data['nombre']
+            proyecto.descripcion = form.cleaned_data['descripcion']
+            proyecto.fecha_inicio = form.cleaned_data['fecha_inicio']
+            proyecto.fecha_fin = form.cleaned_data['fecha_fin']
+            proyecto.presupuesto = form.cleaned_data['presupuesto']
+            proyecto.cliente = form.cleaned_data['cliente']
+            proyecto.tareas = form.cleaned_data['tareas']
+            proyecto.empleados = form.cleaned_data['empleados']
+            proyecto.save()
 
             form.save()
 
-            return redirect('empleado')
+            return redirect('proyecto')
 
-        return render('empleadoForm', {'form':form})
+        return render('gestionar_proyecto', {'form':form})
 
 
 
@@ -144,6 +133,37 @@ class TareasDetailView(DetailView):
         return context
 
 
+
+class CreateTareasView(View):
+    def get(self, request, *args, **kwargs):
+        form = añadir_tarea
+        context = {
+            'form':form
+        }
+        return render(request, 'añadir_tarea.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = añadir_tarea(request.POST)
+        if form.is_valid():
+            tarea = Tarea()
+            tarea.nombre = form.cleaned_data['nombre']
+            tarea.descripcion = form.cleaned_data['descripcion']
+            tarea.fecha_inicio = form.cleaned_data['fecha_inicio']
+            tarea.fecha_fin = form.cleaned_data['fecha_fin']
+            tarea.responsable = form.cleaned_data['responsable']
+            tarea.prioridad = form.cleaned_data['prioridad']
+            tarea.estado = form.cleaned_data['estado']
+            tarea.notas = form.cleaned_data['notas']
+
+            tarea.save()
+
+            form.save()
+
+            return redirect('tareas')
+
+        return render('añadir_tarea', {'form':form})
+
+
 class ClientesListView(ListView):
     model = Cliente
     template_name = "clientesListView.html"
@@ -160,10 +180,36 @@ class ClientesDetailView(DetailView):
     template_name = "clientesDetailView.html"
 
 
-
-
     def get_context_data(self, **kwargs):
         context = super(ClientesDetailView, self).get_context_data(**kwargs)
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
+
+
+
+class CreateClientesView(View):
+    def get(self, request, *args, **kwargs):
+        form = cliente
+        context = {
+            'form':form
+        }
+        return render(request, '.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = (request.POST)
+        if form.is_valid():
+            cliente = Cliente()
+            cliente.nombre = form.cleaned_data['nombre']
+            cliente.empresa = form.cleaned_data['empresa']
+            cliente.telefono = form.cleaned_data['telefono']
+            cliente.email = form.cleaned_data['email']
+            cliente.datos_adicionales = form.cleaned_data['datos_adicionales']
+
+            cliente.save()
+
+            form.save()
+
+            return redirect('clientes')
+
+        return render('', {'form':form})
 
