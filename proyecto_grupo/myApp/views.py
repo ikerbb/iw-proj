@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
 from django.http import HttpResponse
+from django.views import View
 from django.views.generic import DetailView, ListView
 from .models import Proyecto, Empleado, Tarea, Cliente
 from .forms import empleadoForm
@@ -44,6 +45,31 @@ class EmpleadosDetailView(DetailView):
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
+class CreateEmpleadosView(View):
+    def get(self, request, *args, **kwargs):
+        form = empleadoForm()
+        context = {
+
+        }
+        return render(request, 'empleadoForm.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = empleadoForm(request.POST)
+        if form.is_valid():
+            empleado = Empleado()
+            empleado.dni = form.cleaned_data['dni']
+            empleado.nombre = form.cleaned_data['nombre']
+            empleado.apellidos = form.cleaned_data['apellidos']
+            empleado.email = form.cleaned_data['email']
+            empleado.telefono = form.cleaned_data['telefono']
+            empleado.estado = form.cleaned_data['estado']
+            empleado.save()
+
+            form.save()
+
+            return redirect('empleado')
+
+        return render('empleadoForm', {'form':form})
 
 class ProyectosListView(ListView):
     model = Proyecto
@@ -66,6 +92,35 @@ class ProyectosDetailView(DetailView):
         context = super(ProyectosDetailView, self).get_context_data(**kwargs)
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
+
+
+
+class CreateProyectoView(View):
+    def get(self, request, *args, **kwargs):
+        form = empleadoForm()
+        context = {
+
+        }
+        return render(request, 'empleadoForm.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = empleadoForm(request.POST)
+        if form.is_valid():
+            empleado = Empleado()
+            empleado.dni = form.cleaned_data['dni']
+            empleado.nombre = form.cleaned_data['nombre']
+            empleado.apellidos = form.cleaned_data['apellidos']
+            empleado.email = form.cleaned_data['email']
+            empleado.telefono = form.cleaned_data['telefono']
+            empleado.estado = form.cleaned_data['estado']
+            empleado.save()
+
+            form.save()
+
+            return redirect('empleado')
+
+        return render('empleadoForm', {'form':form})
+
 
 
 class TareasListView(ListView):
@@ -103,6 +158,7 @@ class ClientesListView(ListView):
 class ClientesDetailView(DetailView):
     model = Cliente
     template_name = "clientesDetailView.html"
+
 
 
 

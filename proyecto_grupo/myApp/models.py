@@ -13,6 +13,9 @@ class Empleado(models.Model):
     telefono = models.IntegerField()
     estado = models.IntegerField(choices=CHOICE_estado_empleado)
 
+    def __str__(self):
+        return f'{self.id}, {self.nombre}, {self.apellidos}'
+
 
 class Tarea(models.Model):
     nombre = models.CharField(max_length=100)
@@ -24,6 +27,9 @@ class Tarea(models.Model):
     estado = models.IntegerField(choices=CHOICE_estado_tarea)
     notas = models.CharField(max_length=10000, blank=True)
 
+    def __str__(self):
+        return f'{self.id}, {self.nombre}'
+
 
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
@@ -31,6 +37,9 @@ class Cliente(models.Model):
     telefono = models.IntegerField()
     email = models.EmailField(max_length=100)
     datos_adicionales = models.CharField(max_length=1000, blank=True)
+
+    def __str__(self):
+        return f'{self.id}, {self.nombre}, {self.empresa}'
 
 
 class Proyecto(models.Model):
@@ -42,3 +51,6 @@ class Proyecto(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     tareas = models.ManyToManyField(Tarea)
     empleados = models.ManyToManyField(Empleado)
+
+    def __str__(self):
+        return f'{self.id}, {self.nombre}'
