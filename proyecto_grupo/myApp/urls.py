@@ -12,5 +12,6 @@ urlpatterns = [
     path('tareas/', views.TareasListView.as_view(), name='tareasListView'),
     path('tareas/<int:pk>/', views.TareasDetailView.as_view(), name='tareasDetailView'),
     path('clientes/', views.ClientesListView.as_view(), name='clientesListView'),
-    path('clientes/<int:pk>/', views.ClientesDetailView.as_view(), name='clientesDetailView')
+    path('clientes/<int:pk>/', views.ClientesDetailView.as_view(), name='clientesDetailView'),
+    path('',views.showInicio, name='index')
 ]

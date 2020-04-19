@@ -7,9 +7,10 @@ from django.views.generic import DetailView, ListView
 from .models import Proyecto, Empleado, Tarea, Cliente
 from .forms import empleadoForm
 
-#def showEmpleadoForm(request):
-#   return render(request, 'registro.html')
 
+def showEmpleadoForm(request):
+    form = empleadoForm()
+    return render(request, "empleadoForm.html", {'form': form})
 
 def postEmpleadoForm(request):
    dni = request.POST['dni']
@@ -20,9 +21,8 @@ def postEmpleadoForm(request):
    estado = request.POST['estado']
    return HttpResponse(f'DNI:{dni} -- Nombre:{nombre} -- Apellidos:{apellidos} -- Email:{email} -- Telefono:{telefono} -- Estado:{estado}')
 
-def showEmpleadoForm(request):
-    form = empleadoForm()
-    return render(request, "empleadoForm.html", {'form': form})
+def showInicio(request):
+    return render(request, "index.html")
 
 class EmpleadosListView(ListView):
     model = Empleado

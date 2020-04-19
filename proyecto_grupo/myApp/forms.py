@@ -7,3 +7,4 @@ class empleadoForm(forms.Form):
         email = forms.EmailField(label="Email", max_length=50)
         telefono = forms.IntegerField(label="Telefono")
         estado = forms.CharField(label="Estado", max_length=50)
+
