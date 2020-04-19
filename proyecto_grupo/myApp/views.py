@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import DetailView, ListView
 from .models import Proyecto, Empleado, Tarea, Cliente
-from .forms import empleadoForm
+from .forms import empleadoForm, proyectoForm, tareaForm, clienteForm
 
 
 def showInicio(request):
@@ -84,14 +84,14 @@ class ProyectosDetailView(DetailView):
 
 class CreateProyectoView(View):
     def get(self, request, *args, **kwargs):
-        form = gestionar_proyecto
+        form = proyectoForm()
         context = {
 
         }
         return render(request, 'gestionar_proyecto.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = gestionar_proyecto(request.POST)
+        form = proyectoForm(request.POST)
         if form.is_valid():
             proyecto = Proyecto
             proyecto.nombre = form.cleaned_data['nombre']
@@ -100,7 +100,6 @@ class CreateProyectoView(View):
             proyecto.fecha_fin = form.cleaned_data['fecha_fin']
             proyecto.presupuesto = form.cleaned_data['presupuesto']
             proyecto.cliente = form.cleaned_data['cliente']
-            proyecto.tareas = form.cleaned_data['tareas']
             proyecto.empleados = form.cleaned_data['empleados']
             proyecto.save()
 
@@ -136,14 +135,14 @@ class TareasDetailView(DetailView):
 
 class CreateTareasView(View):
     def get(self, request, *args, **kwargs):
-        form = añadir_tarea
+        form = tareaForm()
         context = {
             'form':form
         }
         return render(request, 'añadir_tarea.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = añadir_tarea(request.POST)
+        form = tareaForm(request.POST)
         if form.is_valid():
             tarea = Tarea()
             tarea.nombre = form.cleaned_data['nombre']
@@ -189,14 +188,14 @@ class ClientesDetailView(DetailView):
 
 class CreateClientesView(View):
     def get(self, request, *args, **kwargs):
-        form = cliente
+        form = clienteForm()
         context = {
             'form':form
         }
         return render(request, '.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = (request.POST)
+        form = clienteForm(request.POST)
         if form.is_valid():
             cliente = Cliente()
             cliente.nombre = form.cleaned_data['nombre']
