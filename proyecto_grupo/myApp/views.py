@@ -56,7 +56,7 @@ class CreateEmpleadosView(View):
 
             return redirect('empleados')
 
-        return render('empleadoForm', {'form':form})
+        return render(request, 'empleadoForm', {'form':form})
 
 class ProyectosListView(ListView):
     model = Proyecto
@@ -93,7 +93,7 @@ class CreateProyectoView(View):
     def post(self, request, *args, **kwargs):
         form = proyectoForm(request.POST)
         if form.is_valid():
-            proyecto = Proyecto
+            proyecto = Proyecto()
             proyecto.nombre = form.cleaned_data['nombre']
             proyecto.descripcion = form.cleaned_data['descripcion']
             proyecto.fecha_inicio = form.cleaned_data['fecha_inicio']
@@ -107,7 +107,7 @@ class CreateProyectoView(View):
 
             return redirect('proyecto')
 
-        return render('gestionar_proyecto', {'form':form})
+        return render(request, 'gestionar_proyecto.html', {'form':form})
 
 
 
@@ -160,7 +160,7 @@ class CreateTareasView(View):
 
             return redirect('tareas')
 
-        return render('añadir_tarea', {'form':form})
+        return render(request, 'añadir_tarea', {'form':form})
 
 
 class ClientesListView(ListView):
@@ -210,5 +210,5 @@ class CreateClientesView(View):
 
             return redirect('clientes')
 
-        return render('', {'form':form})
+        return render(request, '', {'form':form})
 
