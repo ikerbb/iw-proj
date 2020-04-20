@@ -5,10 +5,14 @@
     <title>Registro de empleado</title>
 </head>
 <body>
-    <form action="{% url 'registrarEmpleado' %}" method="post">
+    {% block contenido %}
+    <div>
+    <form method="post">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Enviar">
+        {{ form.as_p }}
+        <button type="submit"> Crear </button>
     </form>
+    </div>
+    {% endblock %}
 </body>
 </html>

@@ -139,7 +139,7 @@ class CreateTareasView(View):
         context = {
             'form':form
         }
-        return render(request, 'añadir_tarea.html', context)
+        return render(request, 'anadir_tarea.html', context)
 
     def post(self, request, *args, **kwargs):
         form = tareaForm(request.POST)
