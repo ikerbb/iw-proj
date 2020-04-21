@@ -192,7 +192,7 @@ class CreateClientesView(View):
         context = {
             'form':form
         }
-        return render(request, '.html', context)
+        return render(request, 'gestionar_clientes.html', context)
 
     def post(self, request, *args, **kwargs):
         form = clienteForm(request.POST)
@@ -210,5 +210,5 @@ class CreateClientesView(View):
 
             return redirect('clientes')
 
-        return render(request, '', {'form':form})
+        return render(request, 'gestionar_clientes.html', {'form':form})
 

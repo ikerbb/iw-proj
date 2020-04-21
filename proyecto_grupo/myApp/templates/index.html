@@ -45,16 +45,19 @@ http://www.templatemo.com/tm-511-journey
                             <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
                                 <ul class="navbar-nav ml-auto">
                                   <li class="nav-item">
-                                    <a class="nav-link active" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link active" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="gestionar_proyecto.html">Gestionar un proyecto</a>
+                                    <a class="nav-link" href="{% url 'registrarProyecto' %}">Gestionar un proyecto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="anadir_tarea.html">Gestionar Tareas</a>
+                                    <a class="nav-link" href="{% url 'registrarCliente' %}">Gestionar un cliente</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="gestionar_empleado.html">Gestionar Empleados</a>
+                                    <a class="nav-link" href="{% url 'registrarTarea' %}">Gestionar Tareas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'registrarEmpleado' %}">Gestionar Empleados</a>
                                 </li>
                             </ul>
                         </div>                            
