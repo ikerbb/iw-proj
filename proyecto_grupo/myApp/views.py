@@ -38,7 +38,7 @@ class CreateEmpleadosView(View):
         context = {
             'form':form
         }
-        return render(request, 'empleadoForm.html', context)
+        return render(request, 'gestionar_empleado.html', context)
 
     def post(self, request, *args, **kwargs):
         form = empleadoForm(request.POST)
@@ -56,7 +56,7 @@ class CreateEmpleadosView(View):
 
             return redirect('empleados')
 
-        return render(request, 'empleadoForm', {'form':form})
+        return render(request, 'gestionar_empleado.html', {'form':form})
 
 class ProyectosListView(ListView):
     model = Proyecto
