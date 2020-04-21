@@ -54,7 +54,7 @@ class CreateEmpleadosView(View):
 
             form.save()
 
-            return redirect('empleados')
+            return redirect('index')
 
         return render(request, 'gestionar_empleado.html', {'form':form})
 
@@ -139,7 +139,7 @@ class CreateTareasView(View):
         context = {
             'form':form
         }
-        return render(request, 'anadir_tarea.html', context)
+        return render(request, 'gestionar_tarea.html', context)
 
     def post(self, request, *args, **kwargs):
         form = tareaForm(request.POST)
@@ -192,23 +192,15 @@ class CreateClientesView(View):
         context = {
             'form':form
         }
-        return render(request, '.html', context)
+        return render(request, 'gestionar_clientes.html', context)
 
     def post(self, request, *args, **kwargs):
         form = clienteForm(request.POST)
         if form.is_valid():
-            cliente = Cliente()
-            cliente.nombre = form.cleaned_data['nombre']
-            cliente.empresa = form.cleaned_data['empresa']
-            cliente.telefono = form.cleaned_data['telefono']
-            cliente.email = form.cleaned_data['email']
-            cliente.datos_adicionales = form.cleaned_data['datos_adicionales']
-
-            cliente.save()
 
             form.save()
 
             return redirect('clientes')
 
-        return render(request, '', {'form':form})
+        return render(request, 'gestionar_clientes.html', {'form':form})
 
