@@ -36,7 +36,7 @@ http://www.templatemo.com/tm-511-journey
                     <div class="row">
                         <nav class="navbar navbar-expand-lg narbar-light">
                             <a class="navbar-brand mr-auto" href="#">
-                                <img src="{% static 'img/logo.png' %}" alt="Site logo">
+                                <img src="img/logo.png" alt="Site logo">
                                 Deustotil Tech
                             </a>
                             <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,27 +44,52 @@ http://www.templatemo.com/tm-511-journey
                             </button>
                             <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
                                 <ul class="navbar-nav ml-auto">
-                                  <li class="nav-item">
-                                    <a class="nav-link active" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'registrarProyecto' %}">Gestionar un proyecto</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'registrarCliente' %}">Gestionar un cliente</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'registrarTarea' %}">Gestionar Tareas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'registrarEmpleado' %}">Gestionar Empleados</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                                    </li>
+
+                                  <div class="dropdown">
+                                      <li class="nav-item">
+                                          <button class="drpbtn">Gestionar un proyecto</button>
+                                          <div class="dropdown-content">
+                                              <a class="nav-link" href="{% url 'registrarProyecto' %}">Crear un proyecto</a>
+                                          </div>
+                                      </li>
+                                  </div>
+
+                                  <div class="dropdown">
+                                      <li class="nav-item">
+                                          <button class="drpbtn">Gestionar un cliente</button>
+                                          <div class="dropdown-content">
+                                              <a class="nav-link" href="{% url 'registrarCliente' %}">Crear un cliente</a>
+                                          </div>
+                                      </li>
+                                  </div>
+
+                                <div class="dropdown">
+                                    <li class="nav-item">
+                                        <button class="drpbtn">Gestionar Tareas</button>
+                                        <div class="dropdown-content">
+                                            <a class="nav-link" href="{% url 'registrarTarea' %}">Crear una Tarea</a>
+                                        </div>
+                                    </li>
+                                </div>
+
+                                <div class="dropdown">
+                                    <li class="nav-item">
+                                        <button class="drpbtn">Gestionar Empleados</button>
+                                        <div class="dropdown-content">
+                                            <a class="nav-link" href="{% url 'registrarEmpleado' %}">Crear un empleado</a>
+                                        </div>
+                                    </li>
+                                </div>
                             </ul>
-                        </div>                            
+                        </div>
                     </nav>
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- .tm-top-bar -->
+
         <div class="tm-page-wrap mx-auto" style="max-height:500px ">
             <section class="tm-banner">
                 <div class="tm-container-outer tm-banner-bg">
