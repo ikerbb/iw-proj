@@ -197,14 +197,6 @@ class CreateClientesView(View):
     def post(self, request, *args, **kwargs):
         form = clienteForm(request.POST)
         if form.is_valid():
-            cliente = Cliente()
-            cliente.nombre = form.cleaned_data['nombre']
-            cliente.empresa = form.cleaned_data['empresa']
-            cliente.telefono = form.cleaned_data['telefono']
-            cliente.email = form.cleaned_data['email']
-            cliente.datos_adicionales = form.cleaned_data['datos_adicionales']
-
-            cliente.save()
 
             form.save()
 
