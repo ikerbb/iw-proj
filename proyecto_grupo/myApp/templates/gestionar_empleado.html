@@ -35,7 +35,7 @@ http://www.templatemo.com/tm-511-journey
                     <div class="row">
                         <nav class="navbar navbar-expand-lg narbar-light">
                             <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/logo.png" alt="Site logo">
+                                <img src="{% static 'img/logo.png' %}" alt="Site logo">
                                 Deustotil Tech
                             </a>
                             <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,6 +52,7 @@ http://www.templatemo.com/tm-511-journey
                                           <button class="drpbtn">Gestionar un proyecto</button>
                                           <div class="dropdown-content">
                                               <a class="nav-link" href="{% url 'registrarProyecto' %}">Crear un proyecto</a>
+                                              <a class="nav-link" href="{% url 'proyectosListView' %}">Listado de los proyectos</a>
                                           </div>
                                       </li>
                                   </div>
@@ -61,6 +62,7 @@ http://www.templatemo.com/tm-511-journey
                                           <button class="drpbtn">Gestionar un cliente</button>
                                           <div class="dropdown-content">
                                               <a class="nav-link" href="{% url 'registrarCliente' %}">Crear un cliente</a>
+                                              <a class="nav-link" href="{% url 'clientesListView' %}">Listado de los clientes</a>
                                           </div>
                                       </li>
                                   </div>
@@ -70,6 +72,7 @@ http://www.templatemo.com/tm-511-journey
                                         <button class="drpbtn">Gestionar Tareas</button>
                                         <div class="dropdown-content">
                                             <a class="nav-link" href="{% url 'registrarTarea' %}">Crear una Tarea</a>
+                                            <a class="nav-link" href="{% url 'tareasListView' %}">Listado de las tareas</a>
                                         </div>
                                     </li>
                                 </div>
@@ -79,6 +82,7 @@ http://www.templatemo.com/tm-511-journey
                                         <button class="drpbtn">Gestionar Empleados</button>
                                         <div class="dropdown-content">
                                             <a class="nav-link" href="{% url 'registrarEmpleado' %}">Crear un empleado</a>
+                                            <a class="nav-link" href="{% url 'empleadosListView' %}">Listado de los empleados</a>
                                         </div>
                                     </li>
                                 </div>
@@ -97,16 +101,10 @@ http://www.templatemo.com/tm-511-journey
 
                         <div class="row tm-banner-row" id="tm-section-search">
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                             <form action="index.html" method="post" class="tm-search-form tm-section-pad-2">
-=======
                             <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
->>>>>>> master
-=======
                             <form action="{% url 'registrarEmpleado' %}" method="post" class="tm-search-form tm-section-pad-2">
                                 {% csrf_token %}
->>>>>>> master
                                 <div class="form-row tm-search-form-row">
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="inputCity">DNI</label>
@@ -155,8 +153,9 @@ http://www.templatemo.com/tm-511-journey
                                 </div>
 
                             </form>
-
-                        </div> <!-- row -->
+                            </form>
+                            </form>
+                        </div><!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
                 </div>     <!-- .tm-container-outer -->
