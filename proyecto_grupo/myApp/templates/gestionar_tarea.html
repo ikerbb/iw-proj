@@ -36,7 +36,7 @@ http://www.templatemo.com/tm-511-journey
                     <div class="row">
                         <nav class="navbar navbar-expand-lg narbar-light">
                             <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/logo.png" alt="Site logo">
+                                <img src="{% static 'img/logo.png' %}" alt="Site logo">
                                 Deustotil Tech
                             </a>
                             <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,16 +45,19 @@ http://www.templatemo.com/tm-511-journey
                             <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
                                 <ul class="navbar-nav ml-auto">
                                   <li class="nav-item">
-                                    <a class="nav-link active" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link active" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="gestionar_proyecto.html">Gestionar un proyecto</a>
+                                    <a class="nav-link" href="{% url 'registrarProyecto' %}">Gestionar un proyecto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#tm-section-3">Gestionar Tareas</a>
+                                    <a class="nav-link" href="{% url 'registrarCliente' %}">Gestionar un cliente</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="gestionar_empleado.html">Gestionar Empleados</a>
+                                    <a class="nav-link" href="{% url 'registrarTarea' %}">Gestionar Tareas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'registrarEmpleado' %}">Gestionar Empleados</a>
                                 </li>
                             </ul>
                         </div>                            
@@ -70,23 +73,23 @@ http://www.templatemo.com/tm-511-journey
                         
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <form action="index.html" method="post" class="tm-search-form tm-section-pad-2">
+                            <form action="{% url 'registrarTarea' %}" method="post" class="tm-search-form tm-section-pad-2">
                                 <div class="form-row tm-search-form-row">                                
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="inputCity">Añade una tarea al proyecto</label>
-                                        <input name="destination" type="text" class="form-control inputCity" placeholder="Nombre de la tarea...">
+                                        <input name="nombre" type="text" class="form-control inputCity" placeholder="Nombre de la tarea...">
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="inputCity">Descripción</label>
-                                        <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="Descripción" class="inputCity form-control" placeholder="Descripción de la tarea..."></textarea>
+                                        <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="descripcion" class="inputCity form-control" placeholder="Descripción de la tarea..."></textarea>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="inputCity">Notas</label>
-                                        <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="Notas" class="inputCity form-control" placeholder="Notas sobre la tarea"></textarea>
+                                        <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="notas" class="inputCity form-control" placeholder="Notas sobre la tarea"></textarea>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label for="inputCity">Responsable</label>
-                                        <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Responsable de esta tarea">
+                                        <input name="responsable" type="text" class="form-control" id="inputCity" placeholder="Responsable de esta tarea">
                                     </div>
 
                                         
@@ -96,15 +99,15 @@ http://www.templatemo.com/tm-511-journey
 
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
                                         <label for="inputCheckIn">Fecha de inicio</label>
-                                        <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Inicio">
+                                        <input name="fecha_inicio" type="text" class="form-control" id="inputCheckIn" placeholder="Inicio">
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
                                         <label for="inputCheckOut">Fecha final</label>
-                                        <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Fin">
+                                        <input name="fecha_fin" type="text" class="form-control" id="inputCheckOut" placeholder="Fin">
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
                                         <label for="inputCheckOut">Prioridad</label>
-                                        <select id="Prioridad" name="Prioridad" class="form-control" style="height: 40px">
+                                        <select id="Prioridad" name="prioridad" class="form-control" style="height: 40px">
                                             <optgroup label="-------">
                                                 <option>Alta</option>
                                                 <option>Media</option>
@@ -114,7 +117,7 @@ http://www.templatemo.com/tm-511-journey
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
                                         <label for="inputCheckOut">Estado</label>
-                                        <select id="Estado" name="Prioridad" class="form-control" style="height: 40px">
+                                        <select id="Estado" name="estado" class="form-control" style="height: 40px">
                                             <optgroup label="-------">
                                                 <option>Sin empezar</option>
                                                 <option>En marcha</option>
@@ -124,7 +127,7 @@ http://www.templatemo.com/tm-511-journey
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="btnSubmit">&nbsp;</label>
-                                        <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit"><a href="index.html">Añadir Tarea</a></button>
+                                        <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit"><a href="{% url 'index' %}">Añadir Tarea</a></button>
                                     </div>
 
                                 </div>     

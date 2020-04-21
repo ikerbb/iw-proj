@@ -35,7 +35,7 @@ http://www.templatemo.com/tm-511-journey
                     <div class="row">
                         <nav class="navbar navbar-expand-lg narbar-light">
                             <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/logo.png" alt="Site logo">
+                                <img src="{% static 'img/logo.png' %}" alt="Site logo">
                                 Deustotil Tech
                             </a>
                             <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,13 +44,19 @@ http://www.templatemo.com/tm-511-journey
                             <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
                                 <ul class="navbar-nav ml-auto">
                                   <li class="nav-item">
-                                    <a class="nav-link active" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link active" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="gestionar_proyecto.html">Gestionar un proyecto</a>
+                                    <a class="nav-link" href="{% url 'registrarProyecto'">Gestionar un proyecto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="anadir_tarea.html">Gestionar Tareas</a>
+                                    <a class="nav-link" href="{% url 'registrarCliente' %}">Gestionar un cliente</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'registrarTarea' %}">Gestionar Tareas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'registrarEmpleado' %}">Gestionar Empleados</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#tm-section-4">Contacto</a>
@@ -71,7 +77,7 @@ http://www.templatemo.com/tm-511-journey
                             <div class="col-xs-12">
                                 <div class="tm-banner-header">
                                     <h1 class="text-uppercase tm-banner-title">Crear Proyecto</h1>
-                                    <img src="img/dots-3.png" alt="Dots">
+                                    <img src="{% static 'img/dots-3.png' %}" alt="Dots">
                                     <p class="tm-banner-subtitle">Crealo aquí</p>
                                     <a href="javascript:void(0)" class="tm-down-arrow-link"><i class="fa fa-2x fa-angle-down tm-down-arrow"></i></a>       
                                 </div>    
@@ -79,15 +85,15 @@ http://www.templatemo.com/tm-511-journey
                         </div> <!-- row -->
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <form action="index.html" method="post" class="tm-search-form tm-section-pad-2">
+                            <form action="{% url 'registrarProyecto' %}" method="post"  class="tm-search-form tm-section-pad-2">
                                 <div class="form-row tm-search-form-row">                                
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="inputCity">Gestiona tu proyecto:</label>
-                                        <input name="nombre_proyecto" type="text" class="form-control" id="inputCity" placeholder="Nombre del proyecto...">
+                                        <input name="nombre" type="text" class="form-control" id="inputCity" placeholder="Nombre del proyecto...">
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="inputCity">Descripción</label>
-                                        <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="descripcion_proyecto" class="form-control" placeholder="Descripción del proyecto..."></textarea>
+                                        <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="descripcion" class="form-control" placeholder="Descripción del proyecto..."></textarea>
                                         
                                     </div>
                                                                         
@@ -98,7 +104,7 @@ http://www.templatemo.com/tm-511-journey
                                         </div>
                                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">                                       
                                             <label for="inputCity">Empleados</label>
-                                            <input name="-----" type="text" class="form-control" placeholder="Nombre del empleado/a">
+                                            <input name="empleados" type="text" class="form-control" placeholder="Nombre del empleado/a">
                                         </div>
 
                                         

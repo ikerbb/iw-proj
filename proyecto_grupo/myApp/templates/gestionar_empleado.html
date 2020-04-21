@@ -35,7 +35,7 @@ http://www.templatemo.com/tm-511-journey
                     <div class="row">
                         <nav class="navbar navbar-expand-lg narbar-light">
                             <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/logo.png" alt="Site logo">
+                                <img src="{% static 'img/logo.png' %}" alt="Site logo">
                                 Deustotil Tech
                             </a>
                             <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,10 @@ http://www.templatemo.com/tm-511-journey
                                     <a class="nav-link" href="{% url 'registrarProyecto' %}">Gestionar un proyecto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#tm-section-3">Gestionar Tareas</a>
+                                    <a class="nav-link" href="{% url 'registrarCliente' %}">Gestionar un cliente</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'registrarTarea' %}">Gestionar Tareas</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'registrarEmpleado' %}">Gestionar Empleados</a>
