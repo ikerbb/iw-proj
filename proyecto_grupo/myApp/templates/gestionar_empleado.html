@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Deustotil Tech S.L.</title>
-<!-- 
-Journey Template 
+<!--
+Journey Template
 http://www.templatemo.com/tm-511-journey
 -->
     <!-- load stylesheets -->
@@ -19,7 +18,7 @@ http://www.templatemo.com/tm-511-journey
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'css/datepicker.css' %}">
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick.css' %}"/>
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick-theme.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">                                   <!-- Templatemo style -->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">                                  <!-- Templatemo style -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +29,7 @@ http://www.templatemo.com/tm-511-journey
       </head>
 <body>
         <div class="tm-main-content" id="top">
-            <div class="tm-top-bar-bg"></div>    
+            <div class="tm-top-bar-bg"></div>
             <div class="tm-top-bar" id="tm-top-bar">
                 <div class="container">
                     <div class="row">
@@ -57,7 +56,7 @@ http://www.templatemo.com/tm-511-journey
                                     <a class="nav-link" href="gestionar_empleado.html">Gestionar Empleados</a>
                                 </li>
                             </ul>
-                        </div>                            
+                        </div>
                     </nav>
                 </div> <!-- row -->
             </div> <!-- container -->
@@ -67,74 +66,66 @@ http://www.templatemo.com/tm-511-journey
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
 
-                        
+
                         <div class="row tm-banner-row" id="tm-section-search">
 
                             <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
-                                <div class="form-row tm-search-form-row">                                
+                                <div class="form-row tm-search-form-row">
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Añade una tarea al proyecto</label>
-                                        <input name="destination" type="text" class="form-control inputCity" placeholder="Nombre de la tarea...">
+                                        <label for="inputCity">DNI</label>
+                                        <input name="destination" type="text" class="form-control" class="inputCity" placeholder="DNI del empleado">
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Descripción</label>
-                                        <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="Descripción" class="inputCity form-control" placeholder="Descripción de la tarea..."></textarea>
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Notas</label>
-                                        <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="Notas" class="inputCity form-control" placeholder="Notas sobre la tarea"></textarea>
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                        <label for="inputCity">Responsable</label>
-                                        <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Responsable de esta tarea">
+                                        <label for="inputCity">Nombre</label>
+                                        <input name="destination" type="text" class="form-control" class="inputCity" placeholder="Nombre del empleado">
                                     </div>
 
-                                        
-                                    
+
+
+
+                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+                                        <label for="inputCity">Email</label>
+                                        <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Email del empleado">
+                                    </div>
+
+                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                        <label for="inputCity">Apellidos</label>
+                                        <input name="destination" type="text" class="form-control" class="inputCity" placeholder="Apellidos del empleado">
+                                    </div>
+                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+                                            <label for="inputCity">Número de telefono</label>
+                                            <input name="destination" type="text" class="form-control" class="inputCity" placeholder="+34...">
+                                        </div>
+
+
+
                                 </div> <!-- form-row -->
                                 <div class="form-row tm-search-form-row">
 
+
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label for="inputCheckIn">Fecha de inicio</label>
-                                        <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Inicio">
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label for="inputCheckOut">Fecha final</label>
-                                        <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Fin">
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label for="inputCheckOut">Prioridad</label>
+                                        <label>Estado</label>
                                         <select id="Prioridad" name="Prioridad" class="form-control" style="height: 40px">
                                             <optgroup label="-------">
-                                                <option>Alta</option>
-                                                <option>Media</option>
-                                                <option>Baja</option>
+                                                <option>Fijo</option>
+                                                <option>Eventual</option>
                                             </optgroup>
                                         </select>
                                     </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label for="inputCheckOut">Estado</label>
-                                        <select id="Estado" name="Prioridad" class="form-control" style="height: 40px">
-                                            <optgroup label="-------">
-                                                <option>Sin empezar</option>
-                                                <option>En marcha</option>
-                                                <option>Acabada</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="btnSubmit">&nbsp;</label>
-                                        <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit"><a href="index.html">Añadir Tarea</a></button>
+                                        <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit"><a href="index.html" style="color: white">Añadir empleado</a></button>
                                     </div>
 
-                                </div>     
+                                </div>
 
-                            </form>                             
+                            </form>
 
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
-                    </div>  <!-- .container -->                   
-                </div>     <!-- .tm-container-outer -->                 
+                    </div>  <!-- .container -->
+                </div>     <!-- .tm-container-outer -->
             </section>
 </div>
 </div>
