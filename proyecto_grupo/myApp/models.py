@@ -30,7 +30,7 @@ class Tarea(models.Model):
     def __str__(self):
         return f'{self.id}, {self.nombre}'
 
-<
+
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
     empresa = models.CharField(max_length=100)

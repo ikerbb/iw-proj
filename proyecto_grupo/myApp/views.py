@@ -54,7 +54,7 @@ class CreateEmpleadosView(View):
 
             form.save()
 
-            return redirect('empleados')
+            return redirect('index')
 
         return render(request, 'gestionar_empleado.html', {'form':form})
 
