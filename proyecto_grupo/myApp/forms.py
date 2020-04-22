@@ -3,12 +3,14 @@ from django import forms
 
 
 class empleadoForm(forms.ModelForm):
+    
     class Meta:
         model = Empleado
         fields = '__all__'
 
 
 class tareaForm(forms.ModelForm):
+
     class Meta:
         model = Tarea
         fields = '__all__'
