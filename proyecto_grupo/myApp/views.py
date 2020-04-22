@@ -12,6 +12,7 @@ from .forms import empleadoForm, proyectoForm, tareaForm, clienteForm
 def showInicio(request):
     return render(request, "index.html")
 
+
 class EmpleadosListView(ListView):
     model = Empleado
     template_name = "empleadosListView.html"
@@ -32,23 +33,21 @@ class EmpleadosDetailView(DetailView):
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
-class CreateEmpleadosView(View):
-    def get(self, request, *args, **kwargs):
-        form = empleadoForm()
-        context = {
-            'form':form
-        }
-        return render(request, 'gestionar_empleado.html', context)
 
-    def post(self, request, *args, **kwargs):
-        form = empleadoForm(request.POST)
-        if form.is_valid():
+def showCreateEmpleadosView(request):
+    return render(request, 'gestionar_empleado.html')
 
-            form.save()
 
-            return redirect('index')
+def postCreateEmpleadosView(request):
+    dni = request.POST["dni"]
+    nombre = request.POST["nombre"]
+    apellidos = request.POST["apellidos"]
+    email = request.POST["email"]
+    telefono = request.POST["telefono"]
+    estado = request.POST["estado"]
+    empleado = Empleado(dni, nombre, apellidos, email, telefono, estado)
+    empleado.save()
 
-        return render(request, 'gestionar_empleado.html', {'form':form})
 
 class ProyectosListView(ListView):
     model = Proyecto
@@ -73,25 +72,22 @@ class ProyectosDetailView(DetailView):
         return context
 
 
-
 class CreateProyectoView(View):
     def get(self, request, *args, **kwargs):
         form = proyectoForm()
         context = {
-
+            'form': form
         }
         return render(request, 'gestionar_proyecto.html', context)
 
     def post(self, request, *args, **kwargs):
         form = proyectoForm(request.POST)
         if form.is_valid():
-
             form.save()
 
             return redirect('proyecto')
 
-        return render(request, 'gestionar_proyecto.html', {'form':form})
-
+        return render(request, 'gestionar_proyecto.html', {'form': form})
 
 
 class TareasListView(ListView):
@@ -115,24 +111,22 @@ class TareasDetailView(DetailView):
         return context
 
 
-
 class CreateTareasView(View):
     def get(self, request, *args, **kwargs):
         form = tareaForm()
         context = {
-            'form':form
+            'form': form
         }
         return render(request, 'gestionar_tarea.html', context)
 
     def post(self, request, *args, **kwargs):
         form = tareaForm(request.POST)
         if form.is_valid():
-
             form.save()
 
             return redirect('tareas')
 
-        return render(request, 'añadir_tarea', {'form':form})
+        return render(request, 'añadir_tarea', {'form': form})
 
 
 class ClientesListView(ListView):
@@ -150,29 +144,25 @@ class ClientesDetailView(DetailView):
     model = Cliente
     template_name = "clientesDetailView.html"
 
-
     def get_context_data(self, **kwargs):
         context = super(ClientesDetailView, self).get_context_data(**kwargs)
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
 
-
 class CreateClientesView(View):
     def get(self, request, *args, **kwargs):
         form = clienteForm()
         context = {
-            'form':form
+            'form': form
         }
         return render(request, 'gestionar_clientes.html', context)
 
     def post(self, request, *args, **kwargs):
         form = clienteForm(request.POST)
         if form.is_valid():
-
             form.save()
 
             return redirect('clientes')
 
-        return render(request, 'gestionar_clientes.html', {'form':form})
-
+        return render(request, 'gestionar_clientes.html', {'form': form})
