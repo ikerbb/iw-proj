@@ -101,57 +101,38 @@ http://www.templatemo.com/tm-511-journey
 
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <form action="{% url 'registrarEmpleado' %}" method="post" class="tm-search-form tm-section-pad-2">
-                                {% csrf_token %}
-                                <div class="form-row tm-search-form-row">
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">DNI</label>
-                                        <input name="dni" type="text" class="form-control" class="inputCity" placeholder="DNI del empleado" required>
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Nombre</label>
-                                        <input name="nombre" type="text" class="form-control" class="inputCity" placeholder="Nombre del empleado" required>
-                                    </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="color:white">Nombre</th>
+                                        <th style="color:white">Descripcion</th>
+                                        <th style="color:white">Fecha de inicio</th>
+                                        <th style="color:white">Fecha final</th>
+                                        <th style="color:white">Responsable</th>
+                                        <th style="color:white">Prioridad</th>
+                                        <th style="color:white">Estado</th>
+                                        <th style="color:white">Notas</th>
+                                        <th style="color:white">Ver</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for tarea in tarea_list %}
+                                    <tr>
+                                        <td style="color:white">{{ tarea.nombre }}</td>
+                                        <td style="color:white">{{ tarea.descripcion }}</td>
+                                        <td style="color:white">{{ tarea.fecha_inicio }}</td>
+                                        <td style="color:white">{{ tarea.fecha_fin }}</td>
+                                        <td style="color:white">{{ tarea.responsable }}</td>
+                                        <td style="color:white">{{ tarea.prioridad }}</td>
+                                        <td style="color:white">{{ tarea.estado }}</td>
+                                        <td style="color:white">{{ tarea.notas }}</td>
+                                        <td style="color:white"><a href="{% url 'tareasDetailView' tarea.id ">Ver</a> </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
 
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                        <label for="inputCity">Email</label>
-                                        <input name="email" type="email" class="form-control" id="inputCity" placeholder="Email del empleado" required>
-                                    </div>
-
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Apellidos</label>
-                                        <input name="apellidos" type="text" class="form-control" class="inputCity" placeholder="Apellidos del empleado" required>
-                                    </div>
-                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                            <label for="inputCity">Número de telefono</label>
-                                            <input name="telefono" type="number" class="form-control" class="inputCity" placeholder="+34..." required>
-                                        </div>
-
-
-
-                                </div> <!-- form-row -->
-                                <div class="form-row tm-search-form-row">
-
-
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label>Estado</label>
-                                        <select id="Prioridad" name="estado" class="form-control" style="height: 40px">
-                                            <optgroup label="-------">
-                                                <option>Fijo</option>
-                                                <option>Eventual</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="btnSubmit">&nbsp;</label>
-                                        <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit"><a href="{% url 'index' %}" style="color: white">Añadir empleado</a></button>
-                                    </div>
-
-                                </div>
-
-                            </form>
-                        </div><!-- row -->
+                        </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
                 </div>     <!-- .tm-container-outer -->

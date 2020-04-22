@@ -43,14 +43,6 @@ class CreateEmpleadosView(View):
     def post(self, request, *args, **kwargs):
         form = empleadoForm(request.POST)
         if form.is_valid():
-            empleado = Empleado()
-            empleado.dni = form.cleaned_data['dni']
-            empleado.nombre = form.cleaned_data['nombre']
-            empleado.apellidos = form.cleaned_data['apellidos']
-            empleado.email = form.cleaned_data['email']
-            empleado.telefono = form.cleaned_data['telefono']
-            empleado.estado = form.cleaned_data['estado']
-            empleado.save()
 
             form.save()
 
@@ -93,15 +85,6 @@ class CreateProyectoView(View):
     def post(self, request, *args, **kwargs):
         form = proyectoForm(request.POST)
         if form.is_valid():
-            proyecto = Proyecto()
-            proyecto.nombre = form.cleaned_data['nombre']
-            proyecto.descripcion = form.cleaned_data['descripcion']
-            proyecto.fecha_inicio = form.cleaned_data['fecha_inicio']
-            proyecto.fecha_fin = form.cleaned_data['fecha_fin']
-            proyecto.presupuesto = form.cleaned_data['presupuesto']
-            proyecto.cliente = form.cleaned_data['cliente']
-            proyecto.empleados = form.cleaned_data['empleados']
-            proyecto.save()
 
             form.save()
 
@@ -144,17 +127,6 @@ class CreateTareasView(View):
     def post(self, request, *args, **kwargs):
         form = tareaForm(request.POST)
         if form.is_valid():
-            tarea = Tarea()
-            tarea.nombre = form.cleaned_data['nombre']
-            tarea.descripcion = form.cleaned_data['descripcion']
-            tarea.fecha_inicio = form.cleaned_data['fecha_inicio']
-            tarea.fecha_fin = form.cleaned_data['fecha_fin']
-            tarea.responsable = form.cleaned_data['responsable']
-            tarea.prioridad = form.cleaned_data['prioridad']
-            tarea.estado = form.cleaned_data['estado']
-            tarea.notas = form.cleaned_data['notas']
-
-            tarea.save()
 
             form.save()
 
