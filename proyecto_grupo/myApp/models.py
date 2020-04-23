@@ -1,9 +1,5 @@
 from django.db import models
 
-CHOICE_estado_empleado = [(0, 'Fijo'), (1, 'Eventual')]
-CHOICE_prioridad = [(0, 'Alta'), (1, 'Media'), (2, 'Baja')]
-CHOICE_estado_tarea = [(0, 'Sin empezar'), (1, 'En marcha'), (2, 'Acabada')]
-
 
 class Empleado(models.Model):
     dni = models.CharField(max_length=9)
@@ -11,10 +7,11 @@ class Empleado(models.Model):
     apellidos = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     telefono = models.IntegerField()
-    estado = models.IntegerField(choices=CHOICE_estado_empleado)
+    estado = models.CharField(max_length=100)
 
     def __str__(self):
         return f'{self.id}, {self.nombre}, {self.apellidos}'
+
 
 
 class Tarea(models.Model):
@@ -23,8 +20,8 @@ class Tarea(models.Model):
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     responsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
-    prioridad = models.IntegerField(choices=CHOICE_prioridad)
-    estado = models.IntegerField(choices=CHOICE_estado_tarea)
+    prioridad = models.CharField(max_length=100)
+    estado = models.CharField(max_length=100)
     notas = models.CharField(max_length=10000, blank=True)
 
     def __str__(self):
@@ -54,3 +51,4 @@ class Proyecto(models.Model):
 
     def __str__(self):
         return f'{self.id}, {self.nombre}'
+

@@ -9,13 +9,15 @@ urlpatterns = [
     path('empleados/registro/action',views.postCreateEmpleadosView, name='registroEmpleado'),
     path('proyectos/', views.ProyectosListView.as_view(), name='proyectosListView'),
     path('proyectos/<int:pk>/', views.ProyectosDetailView.as_view(), name='proyectosDetailView'),
-    path('proyectos/registro/', views.CreateProyectoView.as_view(), name='registrarProyecto'),
+    path('proyectos/registro/', views.showCreateProyectosView, name='registrarProyecto'),
+    path('proyectos/registro/action', views.postCreateProyectosView, name='registroProyecto'),
     path('tareas/', views.TareasListView.as_view(), name='tareasListView'),
     path('tareas/<int:pk>/', views.TareasDetailView.as_view(), name='tareasDetailView'),
-    path('tareas/registro/', views.CreateTareasView.as_view(), name='registrarTarea'),
+    path('tareas/registro/', views.showCreateTareasView, name='registrarTarea'),
+    path('tareas/registro/action', views.postCreateTareasView, name='registroTarea'),
     path('clientes/', views.ClientesListView.as_view(), name='clientesListView'),
     path('clientes/<int:pk>/', views.ClientesDetailView.as_view(), name='clientesDetailView'),
-    path('clientes/registro/', views.CreateClientesView.as_view(), name='registrarCliente'),
+    path('clientes/registro/', views.showCreateClientesView, name='registrarCliente'),
+    path('clientes/registro/action', views.postCreateClientesView, name='registroCliente'),
     path('',views.showInicio, name='index')
-
 ]

@@ -2,11 +2,8 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 
-from django.http import HttpResponse
-from django.views import View
 from django.views.generic import DetailView, ListView
 from .models import Proyecto, Empleado, Tarea, Cliente
-from .forms import empleadoForm, proyectoForm, tareaForm, clienteForm
 
 
 def showInicio(request):
@@ -45,8 +42,19 @@ def postCreateEmpleadosView(request):
     email = request.POST["email"]
     telefono = request.POST["telefono"]
     estado = request.POST["estado"]
-    empleado = Empleado(dni, nombre, apellidos, email, telefono, estado)
+
+    empleado = Empleado()
+
+    empleado.dni = dni
+    empleado.nombre = nombre
+    empleado.apellidos = apellidos
+    empleado.email = email
+    empleado.telefono = telefono
+    empleado.estado = estado
+
     empleado.save()
+
+    return redirect('empleadosListView')
 
 
 class ProyectosListView(ListView):
@@ -72,23 +80,34 @@ class ProyectosDetailView(DetailView):
         return context
 
 
-class CreateProyectoView(View):
-    def get(self, request, *args, **kwargs):
-        form = proyectoForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'gestionar_proyecto.html', context)
+def showCreateProyectosView(request):
+    return render(request, 'gestionar_proyecto.html')
 
-    def post(self, request, *args, **kwargs):
-        form = proyectoForm(request.POST)
-        if form.is_valid():
-            form.save()
 
-            return redirect('proyecto')
+def postCreateProyectosView(request):
+    nombre = request.POST["nombre"]
+    descripcion = request.POST["descripcion"]
+    fecha_inicio = request.POST["fecha_inicio"]
+    fecha_fin = request.POST["fecha_fin"]
+    presupuesto = request.POST["presupuesto"]
+    cliente = request.POST["cliente"]
+    tareas = request.POST["tareas"]
+    empleados = request.POST["empleados"]
 
-        return render(request, 'gestionar_proyecto.html', {'form': form})
+    proyecto = Proyecto()
 
+    proyecto.nombre = nombre
+    proyecto.descripcion = descripcion
+    proyecto.fecha_inicio = fecha_inicio
+    proyecto.fecha_fin = fecha_fin
+    proyecto.presupuesto = presupuesto
+    proyecto.cliente = cliente
+    proyecto.tareas = tareas
+    proyecto.empleados = empleados
+
+    proyecto.save()
+
+    return redirect('proyectosListView')
 
 class TareasListView(ListView):
     model = Tarea
@@ -111,22 +130,34 @@ class TareasDetailView(DetailView):
         return context
 
 
-class CreateTareasView(View):
-    def get(self, request, *args, **kwargs):
-        form = tareaForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'gestionar_tarea.html', context)
+def showCreateTareasView(request):
+    return render(request, 'gestionar_tarea.html')
 
-    def post(self, request, *args, **kwargs):
-        form = tareaForm(request.POST)
-        if form.is_valid():
-            form.save()
 
-            return redirect('tareas')
+def postCreateTareasView(request):
+    nombre = request.POST["nombre"]
+    descripcion = request.POST["descripcion"]
+    fecha_inicio = request.POST["fecha_inicio"]
+    fecha_fin = request.POST["fecha_fin"]
+    responsable = request.POST["responsable"]
+    prioridad = request.POST["prioridad"]
+    estado = request.POST["estado"]
+    notas = request.POST["notas"]
 
-        return render(request, 'añadir_tarea', {'form': form})
+    tarea = Tarea()
+
+    tarea.nombre = nombre
+    tarea.descripcion = descripcion
+    tarea.fecha_inicio = fecha_inicio
+    tarea.fecha_fin = fecha_fin
+    tarea.responsable = responsable
+    tarea.prioridad = prioridad
+    tarea.estado = estado
+    tarea.notas = notas
+
+    tarea.save()
+
+    return redirect('tareasListView')
 
 
 class ClientesListView(ListView):
@@ -150,19 +181,26 @@ class ClientesDetailView(DetailView):
         return context
 
 
-class CreateClientesView(View):
-    def get(self, request, *args, **kwargs):
-        form = clienteForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'gestionar_clientes.html', context)
+def showCreateClientesView(request):
+    return render(request, 'gestionar_cliente.html')
 
-    def post(self, request, *args, **kwargs):
-        form = clienteForm(request.POST)
-        if form.is_valid():
-            form.save()
 
-            return redirect('clientes')
+def postCreateClientesView(request):
+    nombre = request.POST["nombre"]
+    empresa = request.POST["empresa"]
+    telefono = request.POST["telefono"]
+    email = request.POST["email"]
+    datos_adicionales = request.POST["datos_adicionales"]
 
-        return render(request, 'gestionar_clientes.html', {'form': form})
+    cliente = Cliente()
+
+    cliente.nombre = nombre
+    cliente.empresa = empresa
+    cliente.telefono = telefono
+    cliente.email = email
+    cliente.datos_adicionales = datos_adicionales
+
+
+    cliente.save()
+
+    return redirect('clientesListView')
