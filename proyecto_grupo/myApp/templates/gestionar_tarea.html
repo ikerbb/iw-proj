@@ -102,7 +102,7 @@ http://www.templatemo.com/tm-511-journey
                         
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <form action="{% url 'registrarTarea' %}" method="post" class="tm-search-form tm-section-pad-2">
+                            <form action="{% url 'registroTarea' %}" method="post" class="tm-search-form tm-section-pad-2">
                                 {% csrf_token %}
                                 <div class="form-row tm-search-form-row">                                
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
@@ -119,7 +119,7 @@ http://www.templatemo.com/tm-511-journey
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label for="inputCity">Responsable</label>
-                                        <input name="responsable" type="" class="form-control" id="inputCity" placeholder="Responsable de esta tarea" required>
+                                        <input name="responsable" type="text" class="form-control" id="inputCity" placeholder="Responsable de esta tarea" required>
                                     </div>
 
                                         
