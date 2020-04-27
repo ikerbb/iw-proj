@@ -125,19 +125,19 @@ http://www.templatemo.com/tm-511-journey
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label for="inputCity">Cliente</label>
-                                        <input name="cliente" type="text" class="form-control" placeholder="Cliente" required>
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                        <label for="inputCity">Empleados</label>
-                                        <select id="select_empleados" name="select_empleados_name" required>
-                                                {% for emp in empleado_list %}
-                                                <option value="{{ emp.id }}"> {{ emp.nombre}} -- {{emp.apellidos}}</option>
+                                        <select id="select_clientes" name="cliente" required>
+                                                {% for cliente in clientes_list %}
+                                                <option value="{{ cliente.id }}"> {{ cliente.nombre}}</option>
                                                 {% endfor %}
                                         </select>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                        <label for="inputCity">Tareas</label>
-                                        <input name="tareas" type="text" class="form-control" placeholder="Tareas" required>
+                                        <label for="inputCity">Empleados</label>
+                                        <select id="select_empleados" name="empleados" required>
+                                                {% for emp in empleado_list %}
+                                                <option value="{{ emp.id }}"> {{ emp.nombre}}  {{emp.apellidos}}</option>
+                                                {% endfor %}
+                                        </select>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label for="inputCity">Presupuesto</label>

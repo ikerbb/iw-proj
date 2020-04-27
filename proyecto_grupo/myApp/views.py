@@ -82,8 +82,11 @@ class ProyectosDetailView(DetailView):
 
 def showCreateProyectosView(request):
     empleado_list = Empleado.objects.order_by('nombre')
-    context = {'empleado_list': empleado_list}
+    clientes_list = Cliente.objects.order_by('nombre')
+    context = {'empleado_list': empleado_list,'clientes_list': clientes_list}
     return render(request, 'gestionar_proyecto.html', context)
+
+
 
 
 def postCreateProyectosView(request):
@@ -93,7 +96,7 @@ def postCreateProyectosView(request):
     fecha_fin = request.POST["fecha_final"]
     presupuesto = request.POST["Presupuesto"]
     cliente = request.POST["cliente"]
-    tareas = request.POST["tareas"]
+
     empleados = request.POST["empleados"]
 
     proyecto = Proyecto()
@@ -103,9 +106,10 @@ def postCreateProyectosView(request):
     proyecto.fecha_inicio = fecha_inicio
     proyecto.fecha_fin = fecha_fin
     proyecto.presupuesto = presupuesto
-    proyecto.cliente = cliente
-    proyecto.tareas = tareas
-    proyecto.empleados = empleados
+    clientes = Cliente.objects.get(pk=cliente)
+    proyecto.cliente = clientes
+    empleado = Empleado.objects.get(pk=empleados)
+    proyecto.empleados = empleado
 
     proyecto.save()
 
@@ -137,22 +141,23 @@ def showCreateTareasView(request):
 
 
 def postCreateTareasView(request):
-    nombre = request.POST["nombre"]
+    nombre_tarea = request.POST["nombre"]
     descripcion = request.POST["descripcion"]
     fecha_inicio = request.POST["fecha_inicio"]
     fecha_fin = request.POST["fecha_fin"]
-    responsable = request.POST["responsable"]
+    nombre = request.POST["responsable"]
     prioridad = request.POST["prioridad"]
     estado = request.POST["estado"]
     notas = request.POST["notas"]
 
     tarea = Tarea()
 
-    tarea.nombre = nombre
+
+    tarea.nombre_tarea = nombre_tarea
     tarea.descripcion = descripcion
     tarea.fecha_inicio = fecha_inicio
     tarea.fecha_fin = fecha_fin
-    tarea.responsable = responsable
+    tarea.nombre = nombre
     tarea.prioridad = prioridad
     tarea.estado = estado
     tarea.notas = notas

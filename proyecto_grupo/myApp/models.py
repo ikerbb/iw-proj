@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class Empleado(models.Model):
     dni = models.CharField(max_length=9)
     nombre = models.CharField(max_length=50)
@@ -15,17 +16,19 @@ class Empleado(models.Model):
 
 
 class Tarea(models.Model):
-    nombre = models.CharField(max_length=100)
+    nombre_tarea = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=1000)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
-    responsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+
+    nombre = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+
     prioridad = models.CharField(max_length=100)
     estado = models.CharField(max_length=100)
     notas = models.CharField(max_length=10000, blank=True)
 
     def __str__(self):
-        return f'{self.id}, {self.nombre}'
+        return f'{self.id}, {self.nombre_tarea}'
 
 
 class Cliente(models.Model):
