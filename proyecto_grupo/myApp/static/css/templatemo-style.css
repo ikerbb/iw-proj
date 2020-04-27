@@ -16,6 +16,18 @@ body {
     background: #e6e6e6;
 }
 
+.tablados{background-color: #fff;
+  color: black;
+  display: block;
+  padding: 50px 35px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  height: 105.52px;
+  width: 119.33px}
+
+
+
 .dropbtn {
   background-color: #fff;
   color: black;
@@ -1133,7 +1145,8 @@ label { font-weight: 700; }
     text-transform: uppercase;
 }
 
-.tm-d-table { display: table; }
+.tm-d-table { display: table;
+ color: white;}
 
 footer {
     background: #69c6ba;

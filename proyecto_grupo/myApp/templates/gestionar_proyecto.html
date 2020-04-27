@@ -133,7 +133,7 @@ http://www.templatemo.com/tm-511-journey
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label for="inputCity">Empleados</label>
-                                        <select id="select_empleados" name="empleados" required>
+                                        <select id="select_empleados" name="empleados" multiple required>
                                                 {% for emp in empleado_list %}
                                                 <option value="{{ emp.id }}"> {{ emp.nombre}}  {{emp.apellidos}}</option>
                                                 {% endfor %}
@@ -163,7 +163,7 @@ http://www.templatemo.com/tm-511-journey
                             </form>                             
 
                         </div> <!-- row -->
-                        <div class="tm-banner-overlay"></div>
+
                     </div>  <!-- .container -->                   
                 </div>     <!-- .tm-container-outer -->                 
             </section>

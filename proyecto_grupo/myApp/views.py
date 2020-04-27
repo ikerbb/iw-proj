@@ -98,6 +98,7 @@ def postCreateProyectosView(request):
     cliente = request.POST["cliente"]
 
     empleados = request.POST["empleados"]
+    array_empleado = [empleados]
 
     proyecto = Proyecto()
 

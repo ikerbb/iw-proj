@@ -85,6 +85,10 @@
   border-color: gray;
   cursor: not-allowed;
 }
+
+.tabla{
+color: white;}
+
 .qs-datepicker .qs-controls {
   width: 100%;
   display: -ms-flexbox;

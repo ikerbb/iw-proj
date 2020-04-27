@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,9 +92,8 @@ http://www.templatemo.com/tm-511-journey
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- .tm-top-bar -->
-
-
-        <div class="tm-page-wrap mx-auto" style="max-height:500px ">
+        </div>
+         <div class="tm-page-wrap mx-auto" style="max-height:500px ">
             <section class="tm-banner">
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
@@ -102,11 +101,11 @@ http://www.templatemo.com/tm-511-journey
 
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <table class="tm-d-table">
+                             <table>
                                 <thead>
                                     <tr>
                                         <th class="titulo-tabla">Nombre</th>
-                                        <th class="titulo-tabla">Empresa</th>
+                                        <th>Empresa</th>
                                         <th>Telefono</th>
                                         <th>Email</th>
                                         <th>Datos adicionales</th>
@@ -116,10 +115,10 @@ http://www.templatemo.com/tm-511-journey
                                 <tbody>
                                     {% for cliente in cliente_list %}
                                     <tr>
-                                        <td class="tabla">{{ cliente.nombre }}</td>
+                                        <td class="contenido-tabla">{{ cliente.nombre }}</td>
                                         <td>{{ cliente.empresa }}</td>
                                         <td>{{ cliente.telefono }}</td>
-                                        <td{{ cliente.email }}</td>
+                                        <td>{{ cliente.email }}</td>
                                         <td>{{ cliente.datos_adicionales }}</td>
                                         <td><a href="{% url 'clientesDetailView' cliente.id ">Ver</a> </td>
 
@@ -128,15 +127,13 @@ http://www.templatemo.com/tm-511-journey
                                 </tbody>
 
                             </table>
+                            <button>Borrar</button>
 
                         </div> <!-- row -->
-                        <button>Borrar</button>
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
                 </div>     <!-- .tm-container-outer -->
             </section>
-        </div>
-
 </div>
 </body>
 </html>
