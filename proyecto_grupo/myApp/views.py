@@ -81,7 +81,9 @@ class ProyectosDetailView(DetailView):
 
 
 def showCreateProyectosView(request):
-    return render(request, 'gestionar_proyecto.html')
+    empleado_list = Empleado.objects.order_by('nombre')
+    context = {'empleado_list': empleado_list}
+    return render(request, 'gestionar_proyecto.html', context)
 
 
 def postCreateProyectosView(request):

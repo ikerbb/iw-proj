@@ -129,7 +129,11 @@ http://www.templatemo.com/tm-511-journey
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label for="inputCity">Empleados</label>
-                                        <input name="empleados" type="text" class="form-control" placeholder="Nombre del empleado/a" required>
+                                        <select id="select_empleados" name="select_empleados_name" required>
+                                                {% for emp in empleado_list %}
+                                                <option value="{{ emp.id }}"> {{ emp.nombre}} -- {{emp.apellidos}}</option>
+                                                {% endfor %}
+                                        </select>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label for="inputCity">Tareas</label>
