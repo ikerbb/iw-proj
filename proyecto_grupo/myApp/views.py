@@ -27,7 +27,6 @@ class EmpleadosDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(EmpleadosDetailView, self).get_context_data(**kwargs)
-        # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
 
@@ -96,7 +95,6 @@ def postCreateProyectosView(request):
     fecha_fin = request.POST["fecha_final"]
     presupuesto = request.POST["Presupuesto"]
     cliente = request.POST["cliente"]
-
     empleados = request.POST["empleados"]
     array_empleado = [empleados]
 
@@ -107,10 +105,12 @@ def postCreateProyectosView(request):
     proyecto.fecha_inicio = fecha_inicio
     proyecto.fecha_fin = fecha_fin
     proyecto.presupuesto = presupuesto
+
     clientes = Cliente.objects.get(pk=cliente)
     proyecto.cliente = clientes
+
     empleado = Empleado.objects.get(pk=empleados)
-    proyecto.empleados = empleado
+    proyecto.empleados.add(empleado)
 
     proyecto.save()
 
@@ -185,7 +185,6 @@ class ClientesDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ClientesDetailView, self).get_context_data(**kwargs)
-        # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
 

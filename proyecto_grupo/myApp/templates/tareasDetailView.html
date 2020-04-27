@@ -28,7 +28,7 @@ http://www.templatemo.com/tm-511-journey
           <![endif]-->
       </head>
 <body>
-        <div class="tm-main-content" id="top">
+       <div class="tm-main-content" id="top">
             <div class="tm-top-bar-bg"></div>
             <div class="tm-top-bar" id="tm-top-bar">
                 <div class="container">
@@ -92,8 +92,9 @@ http://www.templatemo.com/tm-511-journey
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- .tm-top-bar -->
-        </div>
-         <div class="tm-page-wrap mx-auto" style="max-height:500px ">
+
+
+        <div class="tm-page-wrap mx-auto" style="max-height:500px ">
             <section class="tm-banner">
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
@@ -101,34 +102,39 @@ http://www.templatemo.com/tm-511-journey
 
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                             <table>
+                            <table>
                                 <thead>
                                     <tr>
-                                        <th style="color:white" class="titulo-tabla">Nombre</th>
-                                        <th style="color:white">Empresa</th>
-                                        <th style="color:white">Telefono</th>
-                                        <th style="color:white">Email</th>
-                                        <th style="color:white">Datos adicionales</th>
+                                        <th style="color:white">Nombre</th>
+                                        <th style="color:white">Descripcion</th>
+                                        <th style="color:white">Fecha de inicio</th>
+                                        <th style="color:white">Fecha final</th>
+                                        <th style="color:white">Responsable</th>
+                                        <th style="color:white">Prioridad</th>
+                                        <th style="color:white">Estado</th>
+                                        <th style="color:white">Notas</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="color:white" class="contenido-tabla">{{ cliente.nombre }}</td>
-                                        <td style="color:white">{{ cliente.empresa }}</td>
-                                        <td style="color:white">{{ cliente.telefono }}</td>
-                                        <td style="color:white">{{ cliente.email }}</td>
-                                        <td style="color:white">{{ cliente.datos_adicionales }}</td>
+                                        <td style="color:white">{{ tarea.nombre_tarea }}</td>
+                                        <td style="color:white">{{ tarea.descripcion }}</td>
+                                        <td style="color:white">{{ tarea.fecha_inicio }}</td>
+                                        <td style="color:white">{{ tarea.fecha_fin }}</td>
+                                        <td style="color:white">{{ tarea.nombre }}</td>
+                                        <td style="color:white">{{ tarea.prioridad }}</td>
+                                        <td style="color:white">{{ tarea.estado }}</td>
+                                        <td style="color:white">{{ tarea.notas }}</td>
                                     </tr>
                                 </tbody>
-
                             </table>
-                            <button>Borrar</button>
 
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
                 </div>     <!-- .tm-container-outer -->
             </section>
+</div>
 </div>
 </body>
 </html>

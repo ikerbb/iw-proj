@@ -107,12 +107,7 @@ http://www.templatemo.com/tm-511-journey
                                     <tr>
                                         <th style="color:white">Nombre</th>
                                         <th style="color:white">Descripcion</th>
-                                        <th style="color:white">Fecha de inicio</th>
-                                        <th style="color:white">Fecha final</th>
-                                        <th style="color:white">Presupuesto</th>
                                         <th style="color:white">Cliente</th>
-                                        <th style="color:white">Tareas</th>
-                                        <th style="color:white">Empleados</th>
                                         <th style="color:white">Ver</th>
                                     </tr>
                                 </thead>
@@ -121,12 +116,7 @@ http://www.templatemo.com/tm-511-journey
                                     <tr>
                                         <td style="color:white">{{ proyecto.nombre }}</td>
                                         <td style="color:white">{{ proyecto.descripcion }}</td>
-                                        <td style="color:white">{{ proyecto.fecha_inicio }}</td>
-                                        <td style="color:white">{{ proyecto.fecha_fin }}</td>
-                                        <td style="color:white">{{ proyecto.presupuesto }}</td>
                                         <td style="color:white">{{ proyecto.cliente }}</td>
-                                        <td style="color:white">{{ proyecto.tareas }}</td>
-                                        <td style="color:white">{{ proyecto.empleados }}</td>
                                         <td style="color:white"><a href="{% url 'proyectosDetailView' proyecto.id ">Ver</a> </td>
                                     </tr>
                                     {% endfor %}

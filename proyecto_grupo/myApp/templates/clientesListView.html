@@ -13,8 +13,8 @@ http://www.templatemo.com/tm-511-journey
 -->
     <!-- load stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">                <!-- Font Awesome -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">                <!-- Font Awesome -->
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'css/datepicker.css' %}">
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick.css' %}"/>
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick-theme.css' %}"/>
@@ -107,21 +107,15 @@ http://www.templatemo.com/tm-511-journey
                                     <tr>
                                         <th class="titulo-tabla">Nombre</th>
                                         <th class="titulo-tabla">Empresa</th>
-                                        <th>Telefono</th>
-                                        <th>Email</th>
-                                        <th>Datos adicionales</th>
-                                        <th>Ver</th>
+                                        <th class="titulo-tabla">Ver</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for cliente in cliente_list %}
                                     <tr>
                                         <td class="tabla">{{ cliente.nombre }}</td>
-                                        <td>{{ cliente.empresa }}</td>
-                                        <td>{{ cliente.telefono }}</td>
-                                        <td{{ cliente.email }}</td>
-                                        <td>{{ cliente.datos_adicionales }}</td>
-                                        <td><a href="{% url 'clientesDetailView' cliente.id ">Ver</a> </td>
+                                        <td class="tabla">{{ cliente.empresa }}</td>
+                                        <td class="tabla"><a href="{% url 'clientesDetailView' cliente.id %}">Ver</a> </td>
 
                                     </tr>
                                     {% endfor %}

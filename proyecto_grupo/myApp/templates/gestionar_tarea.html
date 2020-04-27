@@ -119,7 +119,11 @@ http://www.templatemo.com/tm-511-journey
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label for="inputCity">Responsable</label>
-                                        <input name="responsable" type="text" class="form-control" id="inputCity" placeholder="Responsable de esta tarea" required>
+                                        <select id="select_responsable" name="responsable" multiple required>
+                                                {% for resp in responsable_list %}
+                                                <option value="{{ resp.id }}"> {{ resp.nombre}}  {{resp.apellidos}}</option>
+                                                {% endfor %}
+                                        </select>
                                     </div>
 
                                         
