@@ -113,6 +113,8 @@ http://www.templatemo.com/tm-511-journey
                                         <th style="color:white">Cliente</th>
                                         <th style="color:white">Tareas</th>
                                         <th style="color:white">Empleados</th>
+                                        <th style="color:white">Editar</th>
+                                        <th style="color:white">Borrar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -125,6 +127,9 @@ http://www.templatemo.com/tm-511-journey
                                         <td style="color:white">{{ proyecto.cliente }}</td>
                                         <td style="color:white">{{ proyecto.tareas }}</td>
                                         <td style="color:white">{{ proyecto.empleados }}</td>
+                                        <td style="color:white"><a href="{% url 'proyectosUpdateView' proyecto.id %}">Actualizar</a> </td>
+                                        <td style="color:white"><a href="{% url 'proyectosDeleteView' proyecto.id %}">Borrar</a> </td>
+
                                     </tr>
                                 </tbody>
                             </table>

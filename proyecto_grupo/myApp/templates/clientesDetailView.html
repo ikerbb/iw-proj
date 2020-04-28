@@ -109,6 +109,8 @@ http://www.templatemo.com/tm-511-journey
                                         <th style="color:white">Telefono</th>
                                         <th style="color:white">Email</th>
                                         <th style="color:white">Datos adicionales</th>
+                                        <th style="color:white">Editar</th>
+                                        <th style="color:white">Borrar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,11 +120,12 @@ http://www.templatemo.com/tm-511-journey
                                         <td style="color:white">{{ cliente.telefono }}</td>
                                         <td style="color:white">{{ cliente.email }}</td>
                                         <td style="color:white">{{ cliente.datos_adicionales }}</td>
+                                        <td style="color:white"><a href="{% url 'clientesUpdateView' cliente.id %}">Actualizar</a> </td>
+                                        <td style="color:white"><a href="{% url 'clientesDeleteView' cliente.id %}">Borrar</a> </td>
                                     </tr>
                                 </tbody>
 
                             </table>
-                            <button>Borrar</button>
 
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>

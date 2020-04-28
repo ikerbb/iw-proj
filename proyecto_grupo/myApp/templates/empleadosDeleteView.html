@@ -13,8 +13,8 @@ http://www.templatemo.com/tm-511-journey
 -->
     <!-- load stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">                                      <!-- Bootstrap style -->
     <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">                                      <!-- Bootstrap style -->
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'css/datepicker.css' %}">
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick.css' %}"/>
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick-theme.css' %}"/>
@@ -92,44 +92,23 @@ http://www.templatemo.com/tm-511-journey
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- .tm-top-bar -->
-
-
-        <div class="tm-page-wrap mx-auto" style="max-height:500px ">
+        </div>
+         <div class="tm-page-wrap mx-auto" style="max-height:500px ">
             <section class="tm-banner">
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
-
-
                         <div class="row tm-banner-row" id="tm-section-search">
-
-                            <table class="tm-d-table">
-                                <thead>
-                                    <tr>
-                                        <th class="titulo-tabla" style="color:white">Nombre</th>
-                                        <th class="titulo-tabla" style="color:white">Empresa</th>
-                                        <th class="titulo-tabla" style="color:white">Ver</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for cliente in cliente_list %}
-                                    <tr>
-                                        <td class="tabla" style="color:white">{{ cliente.nombre }}</td>
-                                        <td class="tabla" style="color:white">{{ cliente.empresa }}</td>
-                                        <td class="tabla" style="color:white"><a href="{% url 'clientesDetailView' cliente.id %}">Ver</a> </td>
-
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-
-                            </table>
-
+                            <form action="{% url 'empleadosDeleteView' empleado.id %}" method="post">
+                                {% csrf_token %}
+                                <p style="color:white">¿Estás seguro de que deseas eliminar el empleado {{ empleado.nombre }} {{ empleado.apellidos }}?</p>
+                                <input type="submit" value="Sí"/>
+                                <a href="{% url 'empleadosListView' %}"> No. Volver al listado de empleados </a>
+                            </form>
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
                 </div>     <!-- .tm-container-outer -->
             </section>
-        </div>
-
 </div>
 </body>
 </html>

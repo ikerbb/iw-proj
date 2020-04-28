@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
-
-from django.views.generic import DetailView, ListView
+from django.urls import reverse_lazy, reverse
+from django.views.generic import DetailView, ListView, DeleteView, UpdateView
 from .models import Proyecto, Empleado, Tarea, Cliente
 
 
@@ -28,6 +28,18 @@ class EmpleadosDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(EmpleadosDetailView, self).get_context_data(**kwargs)
         return context
+
+class EmpleadosDeleteView(DeleteView):
+    model = Empleado
+    template_name = 'empleadosDeleteView.html'
+    success_url = reverse_lazy('empleadosListView')
+
+
+class EmpleadosUpdateView(UpdateView):
+    model = Empleado
+    fields = '__all__'
+    template_name = 'empleadosUpdateView.html'
+    success_url = reverse_lazy('empleadosListView')
 
 
 def showCreateEmpleadosView(request):
@@ -78,14 +90,24 @@ class ProyectosDetailView(DetailView):
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
+class ProyectosDeleteView(DeleteView):
+    model = Proyecto
+    template_name = 'proyectosDeleteView.html'
+    success_url = reverse_lazy('proyectosListView')
+
+
+class ProyectosUpdateView(UpdateView):
+    model = Proyecto
+    fields = '__all__'
+    template_name = 'proyectosUpdateView.html'
+    success_url = reverse_lazy('proyectosListView')
+
 
 def showCreateProyectosView(request):
     empleado_list = Empleado.objects.order_by('nombre')
     clientes_list = Cliente.objects.order_by('nombre')
-    context = {'empleado_list': empleado_list,'clientes_list': clientes_list}
+    context = {'empleado_list': empleado_list, 'clientes_list': clientes_list}
     return render(request, 'gestionar_proyecto.html', context)
-
-
 
 
 def postCreateProyectosView(request):
@@ -116,6 +138,7 @@ def postCreateProyectosView(request):
 
     return redirect('proyectosListView')
 
+
 class TareasListView(ListView):
     model = Tarea
     template_name = "tareasListView.html"
@@ -136,6 +159,18 @@ class TareasDetailView(DetailView):
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
+class TareasDeleteView(DeleteView):
+    model = Tarea
+    template_name = 'tareasDeleteView.html'
+    success_url = reverse_lazy('tareasListView')
+
+
+class TareasUpdateView(UpdateView):
+    model = Cliente
+    fields = '__all__'
+    template_name = 'tareasUpdateView.html'
+    success_url = reverse_lazy('tareasListView')
+
 
 def showCreateTareasView(request):
     return render(request, 'gestionar_tarea.html')
@@ -152,7 +187,6 @@ def postCreateTareasView(request):
     notas = request.POST["notas"]
 
     tarea = Tarea()
-
 
     tarea.nombre_tarea = nombre_tarea
     tarea.descripcion = descripcion
@@ -188,6 +222,19 @@ class ClientesDetailView(DetailView):
         return context
 
 
+class ClientesDeleteView(DeleteView):
+    model = Cliente
+    template_name = 'clientesDeleteView.html'
+    success_url = reverse_lazy('clientesListView')
+
+
+class ClientesUpdateView(UpdateView):
+    model = Cliente
+    fields = '__all__'
+    template_name = 'clientesUpdateView.html'
+    success_url = reverse_lazy('clientesListView')
+
+
 def showCreateClientesView(request):
     return render(request, 'gestionar_cliente.html')
 
@@ -206,7 +253,6 @@ def postCreateClientesView(request):
     cliente.telefono = telefono
     cliente.email = email
     cliente.datos_adicionales = datos_adicionales
-
 
     cliente.save()
 

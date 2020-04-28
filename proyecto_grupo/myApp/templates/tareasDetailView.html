@@ -113,6 +113,8 @@ http://www.templatemo.com/tm-511-journey
                                         <th style="color:white">Prioridad</th>
                                         <th style="color:white">Estado</th>
                                         <th style="color:white">Notas</th>
+                                        <th style="color:white">Editar</th>
+                                        <th style="color:white">Borrar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -125,6 +127,9 @@ http://www.templatemo.com/tm-511-journey
                                         <td style="color:white">{{ tarea.prioridad }}</td>
                                         <td style="color:white">{{ tarea.estado }}</td>
                                         <td style="color:white">{{ tarea.notas }}</td>
+                                        <td style="color:white"><a href="{% url 'tareasUpdateView' tarea.id %}">Actualizar</a> </td>
+                                        <td style="color:white"><a href="{% url 'tareasDeleteView' tarea.id %}">Borrar</a> </td>
+
                                     </tr>
                                 </tbody>
                             </table>

@@ -111,6 +111,8 @@ http://www.templatemo.com/tm-511-journey
                                         <th style="color:white">Email</th>
                                         <th style="color:white">Telefono</th>
                                         <th style="color:white">Estado</th>
+                                        <th style="color:white">Editar</th>
+                                        <th style="color:white">Borrar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -121,6 +123,8 @@ http://www.templatemo.com/tm-511-journey
                                         <td style="color:white">{{ empleado.email }}</td>
                                         <td style="color:white">{{ empleado.telefono }}</td>
                                         <td style="color:white">{{ empleado.estado }}</td>
+                                        <td style="color:white"><a href="{% url 'empleadosUpdateView' empleado.id %}">Actualizar</a> </td>
+                                        <td style="color:white"><a href="{% url 'empleadosDeleteView' empleado.id %}">Borrar</a> </td>
                                     </tr>
                                 </tbody>
                             </table>
