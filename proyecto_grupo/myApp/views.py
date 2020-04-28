@@ -181,7 +181,9 @@ class TareasUpdateView(UpdateView):
 
 
 def showCreateTareasView(request):
-    return render(request, 'gestionar_tarea.html')
+    proyecto_list = Proyecto.objects.order_by('nombre')
+    context = {'proyecto_list': proyecto_list}
+    return render(request, 'gestionar_tarea.html', context)
 
 
 def postCreateTareasView(request):
