@@ -117,8 +117,7 @@ def postCreateProyectosView(request):
     fecha_fin = request.POST["fecha_final"]
     presupuesto = request.POST["Presupuesto"]
     cliente = request.POST["cliente"]
-    empleados = request.POST["empleados"]
-    array_empleado = [empleados]
+    empleado_list = request.POST.getlist("empleados")
 
     proyecto = Proyecto()
 
@@ -131,10 +130,16 @@ def postCreateProyectosView(request):
     clientes = Cliente.objects.get(pk=cliente)
     proyecto.cliente = clientes
 
-    empleado = Empleado.objects.get(pk=empleados)
-    proyecto.empleados.add(empleado)
-
     proyecto.save()
+    proyecto2 = Proyecto.objects.get(pk=proyecto.id)
+    for emp in empleado_list:
+        empleado = Empleado.objects.get(pk=emp)
+        proyecto2.empleados.add(empleado)
+
+    proyecto2.save()
+
+#   empleado = Empleado.objects.get(pk=empleado_list)
+#   proyecto.empleados = empleado
 
     return redirect('proyectosListView')
 
