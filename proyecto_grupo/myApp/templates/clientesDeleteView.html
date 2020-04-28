@@ -88,7 +88,7 @@ http://www.templatemo.com/tm-511-journey
                                 </div>
                                 <div class="dropdown">
                                     <li class="nav-item">
-                                        <a href="{% url 'faq' %}"> Ver FAQ</a>
+                                        <a href="{% url 'faq' %}"><button class="dropbtn"> Ver FAQ</button></a>
                                     </li>
                                 </div>
                             </ul>
@@ -108,8 +108,8 @@ http://www.templatemo.com/tm-511-journey
                             <form action="{% url 'clientesDeleteView' cliente.id %}" method="post">
                                 {% csrf_token %}
                                 <p style="color:white">¿Estás seguro de que deseas eliminar el cliente {{ cliente.nombre }} de la empresa {{ cliente.empresa }}?</p>
-                                <input type="submit" value="Sí"/>
-                                <a href="{% url 'clientesListView' %}"> No. Volver al listado de clientes </a>
+                                <input class="btn-primary" type="submit" value="Sí"/>
+                                <button class="btn-primary"><a href="{% url 'clientesListView' %}" style="color:white"> No. Volver al listado de clientes </a></button>
 
                             </form>
 

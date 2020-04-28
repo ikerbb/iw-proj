@@ -88,7 +88,7 @@ http://www.templatemo.com/tm-511-journey
                                 </div>
                                 <div class="dropdown">
                                     <li class="nav-item">
-                                        <a href="{% url 'faq' %}"> Ver FAQ</a>
+                                        <a href="{% url 'faq' %}"><button class="dropbtn"> Ver FAQ</button></a>
                                     </li>
                                 </div>
                             </ul>
@@ -109,7 +109,7 @@ http://www.templatemo.com/tm-511-journey
                              <table>
                                 <thead>
                                     <tr>
-                                        <th style="color:white" class="titulo-tabla">Nombre</th>
+                                        <th style="color:white">Nombre</th>
                                         <th style="color:white">Empresa</th>
                                         <th style="color:white">Telefono</th>
                                         <th style="color:white">Email</th>
@@ -119,8 +119,9 @@ http://www.templatemo.com/tm-511-journey
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <tr>
-                                        <td style="color:white" class="contenido-tabla">{{ cliente.nombre }}</td>
+                                        <td style="color:white">{{ cliente.nombre }}</td>
                                         <td style="color:white">{{ cliente.empresa }}</td>
                                         <td style="color:white">{{ cliente.telefono }}</td>
                                         <td style="color:white">{{ cliente.email }}</td>

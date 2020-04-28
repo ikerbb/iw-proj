@@ -86,9 +86,9 @@ http://www.templatemo.com/tm-511-journey
                                         </div>
                                     </li>
                                 </div>
-                                <div class="dropdown">
+                               <div class="dropdown">
                                     <li class="nav-item">
-                                        <a href="{% url 'faq' %}"> Ver FAQ</a>
+                                        <a href="{% url 'faq' %}"><button class="dropbtn"> Ver FAQ</button></a>
                                     </li>
                                 </div>
                             </ul>
@@ -106,8 +106,8 @@ http://www.templatemo.com/tm-511-journey
                             <form action="{% url 'proyectosDeleteView' proyecto.id %}" method="post">
                                 {% csrf_token %}
                                 <p style="color:white">¿Estás seguro de que deseas eliminar el proyecto "{{ proyecto.nombre }}"?</p>
-                                <input type="submit" value="Sí"/>
-                                <a href="{% url 'proyectosListView' %}"> No. Volver al listado de proyectos </a>
+                                <input class="btn-primary" type="submit" value="Sí"/>
+                               <button class="btn-primary"> <a href="{% url 'proyectosListView' %}" style="color:white"> No. Volver al listado de proyectos </a></button>
                             </form>
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>

@@ -25,6 +25,10 @@ body {
   border: none;
   height: 105.52px;
   width: 119.33px}
+th .objetotabla{
+color: white;
+padding: 10px;
+margin: 10px;}
 
 
 
@@ -170,6 +174,11 @@ p:last-child { margin-bottom: 0; }
     cursor: pointer;
 }
 
+h1 .titulo{
+color: black;
+text-align:center;
+}
+
 .tm-banner-title {
     font-size: 3rem;
     margin-bottom: 10px;
@@ -195,6 +204,7 @@ p:last-child { margin-bottom: 0; }
     background: url(../img/software.png) center top no-repeat;    
     min-height: 720px;
     position: relative;
+    color: white;
 }
 .tm-banner-row { 
     position: relative;
@@ -224,14 +234,20 @@ select.tm-select.form-control:not([size]):not([multiple]) { height: 45px; }
     font-size: 0.8rem;
     padding: .75rem;
 }
-label { font-weight: 700; }
+label { font-weight: 700;
+        color: black;}
+
+label{
+display:inline-block;
+margin-bottom: .5rem;}
+
 .tm-search-form {
     background-color: #f5f6f6;
     padding: 25px 25px 15px;
     width: 100%;
     max-width: 830px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 .tm-form-group { float: left; }
@@ -824,6 +840,7 @@ p:last-child { margin-bottom: 0; }
 .tm-banner-title {
     font-size: 3rem;
     margin-bottom: 10px;
+    color: white;
 }
 .tm-banner-subtitle {
     font-size: 1.5rem;
@@ -875,7 +892,8 @@ select.tm-select.form-control:not([size]):not([multiple]) { height: 45px; }
     font-size: 0.8rem;
     padding: .75rem;
 }
-label { font-weight: 700; }
+label { font-weight: 700;
+color: black;}
 .tm-search-form {
     background-color: #f5f6f6;
     padding: 25px 25px 15px;
@@ -1364,7 +1382,10 @@ footer p { color: white; }
         padding-bottom: 50px;
     }
 
-    .tm-banner-header { margin-top: 100px; }
+    .tm-banner-header { margin-top: 100px;
+    background: url(../img/software.png) center top no-repeat;
+    min-height: 720px;
+    position: relative;}
 
     .tm-form-group-1,
     .tm-form-group-2,

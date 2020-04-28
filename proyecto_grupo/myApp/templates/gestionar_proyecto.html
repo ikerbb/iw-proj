@@ -88,7 +88,7 @@ http://www.templatemo.com/tm-511-journey
                                 </div>
                                 <div class="dropdown">
                                     <li class="nav-item">
-                                        <a href="{% url 'faq' %}"> Ver FAQ</a>
+                                        <a href="{% url 'faq' %}"><button class="dropbtn"> Ver FAQ</button></a>
                                     </li>
                                 </div>
                             </ul>
@@ -121,15 +121,15 @@ http://www.templatemo.com/tm-511-journey
                                 {% csrf_token %}
                                 <div class="form-row tm-search-form-row">                                
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Gestiona tu proyecto:</label>
+                                        <label style="color:black" for="inputCity">Gestiona tu proyecto:</label>
                                         <input name="nombre" type="text" class="form-control" id="inputCity" placeholder="Nombre del proyecto..." required>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Descripción</label>
+                                        <label style="color:black" for="inputCity">Descripción</label>
                                         <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="descripcion" class="form-control" placeholder="Descripción del proyecto..."></textarea>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                        <label for="inputCity">Cliente</label>
+                                        <label style="color:black" for="inputCity">Cliente</label>
                                         <select id="select_clientes" name="cliente" required>
                                                 {% for cliente in clientes_list %}
                                                 <option value="{{ cliente.id }}"> {{ cliente.nombre}}</option>
@@ -137,7 +137,7 @@ http://www.templatemo.com/tm-511-journey
                                         </select>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                        <label for="inputCity">Empleados</label>
+                                        <label style="color:black" for="inputCity">Empleados</label>
                                         <select id="select_empleados" name="empleados" multiple required>
                                                 {% for emp in empleado_list %}
                                                 <option value="{{ emp.id }}"> {{ emp.nombre}}  {{emp.apellidos}}</option>
@@ -145,7 +145,7 @@ http://www.templatemo.com/tm-511-journey
                                         </select>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                        <label for="inputCity">Presupuesto</label>
+                                        <label style="color:black" for="inputCity">Presupuesto</label>
                                         <input name="Presupuesto" type="number" class="form-control" placeholder="Presupuesto" required>
                                     </div>
 
@@ -153,15 +153,15 @@ http://www.templatemo.com/tm-511-journey
                                 <div class="form-row tm-search-form-row">
 
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label for="inputCheckIn">Fecha de inicio</label>
+                                        <label style="color:black" for="inputCheckIn">Fecha de inicio</label>
                                         <input name="fecha_inicio" type="date" class="form-control" id="inputCheckIn" placeholder="Inicio" required>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label for="inputCheckOut">Fecha final</label>
+                                        <label style="color:black" for="inputCheckOut">Fecha final</label>
                                         <input name="fecha_final" type="date" class="form-control" id="inputCheckOut" placeholder="Fin" required>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="btnSubmit">&nbsp;</label>
+                                        <label style="color:black" for="btnSubmit">&nbsp;</label>
                                         <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit"> Crear Proyecto </button>
                                     </div>
                                 </div>                              

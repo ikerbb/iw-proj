@@ -88,7 +88,7 @@ http://www.templatemo.com/tm-511-journey
                                 </div>
                                 <div class="dropdown">
                                     <li class="nav-item">
-                                        <a href="{% url 'faq' %}"> Ver FAQ</a>
+                                        <button class="dropbtn"><a href="{% url 'faq' %}"> Ver FAQ</a></button>
                                     </li>
                                 </div>
                             </ul>
@@ -106,10 +106,12 @@ http://www.templatemo.com/tm-511-journey
 
 
                         <div class="row tm-banner-row" id="tm-section-search">
-                            <h1> ¿Quiénes somos? </h1>
-                            <p> Somos una empresa que se dedica a la realización de proyectos, principalmente de digitalización, en la zona norte del país.</p>
-                            <h1> ¿Cómo se usa la página? </h1>
-                            <p> En esta página se pueden crear proyectos, asignados a un cliente, unos empleados y con unas tareas. Pero, cuidado, <strong> LAS TAREAS SOLO SE PUEDEN CREAR DESPUÉS DE CREAR UN PROYECTO</strong> en el menú de crear Tareas. Además, se pueden crear, ver detalle, ver en listado, editar y eliminar todos los proyectos, tareas, clientes y empleados</p>
+                            <form class="tm-search-form tm-section-pad-2">
+                                <h1 class="titulo" style="color: black"> ¿Quiénes somos? </h1>
+                                <p style="color: black"> Somos una empresa que se dedica a la realización de proyectos, principalmente de digitalización, en la zona norte del país.</p>
+                                <h1 style="color: black"> ¿Cómo se usa la página? </h1>
+                                <p style="color: black"> En esta página se pueden crear proyectos, asignados a un cliente, unos empleados y con unas tareas. Pero, cuidado, <strong> LAS TAREAS SOLO SE PUEDEN CREAR DESPUÉS DE CREAR UN PROYECTO</strong> en el menú de crear Tareas. Además, se pueden crear, ver detalle, ver en listado, editar y eliminar todos los proyectos, tareas, clientes y empleados</p>
+                            </form>
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
