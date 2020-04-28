@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Deustotil Tech S.L.</title>
-<!-- 
-Journey Template 
+<!--
+Journey Template
 http://www.templatemo.com/tm-511-journey
 -->
     <!-- load stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">                <!-- Font Awesome -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">                <!-- Font Awesome -->
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'css/datepicker.css' %}">
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick.css' %}"/>
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick-theme.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">                        <!-- Templatemo style -->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">                                  <!-- Templatemo style -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,10 +27,9 @@ http://www.templatemo.com/tm-511-journey
               <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
           <![endif]-->
       </head>
-
-      <body>
-       <div class="tm-main-content" id="top">
-            <div class="tm-top-bar-bg"></div>    
+<body>
+        <div class="tm-main-content" id="top">
+            <div class="tm-top-bar-bg"></div>
             <div class="tm-top-bar" id="tm-top-bar">
                 <div class="container">
                     <div class="row">
@@ -99,115 +98,25 @@ http://www.templatemo.com/tm-511-journey
             </div> <!-- container -->
         </div> <!-- .tm-top-bar -->
 
-            <div class="tm-banner-bg">
-                <form  style="margin-right:200px; margin-left: 200px; background-color: transparent">
-                    <h1 class="tm-banner-title" style="color:white; text-align:center; padding:20px">Bienvenido a nuestro proyecto!</h1>
-                    <p class="tm-banner-subtitle" style="color:white; text-align:center; padding:20px">Este es el proyecto que ha sido realizado por Iker Benito, Aritz Sáez y Ainara López, esperemos que le pongas buena nota!</p>
-                </form>
-            </div>
+
+        <div class="tm-page-wrap mx-auto" style="max-height:500px ">
+            <section class="tm-banner">
+                <div class="tm-container-outer tm-banner-bg">
+                    <div class="container">
 
 
+                        <div class="row tm-banner-row" id="tm-section-search">
+                            <h1> ¿Quiénes somos? </h1>
+                            <p> Somos una empresa que se dedica a la realización de proyectos, principalmente de digitalización, en la zona norte del país.</p>
+                            <h1> ¿Cómo se usa la página? </h1>
+                            <p> En esta página se pueden crear proyectos, asignados a un cliente, unos empleados y con unas tareas. Pero, cuidado, <strong> LAS TAREAS SOLO SE PUEDEN CREAR DESPUÉS DE CREAR UN PROYECTO</strong> en el menú de crear Tareas. Además, se pueden crear, ver detalle, ver en listado, editar y eliminar todos los proyectos, tareas, clientes y empleados</p>
+                        </div> <!-- row -->
+                        <div class="tm-banner-overlay"></div>
+                    </div>  <!-- .container -->
+                </div>     <!-- .tm-container-outer -->
+            </section>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- load JS files -->
-    <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-    <script src="js/popper.min.js"></script>                    <!-- https://popper.js.org/ -->
-    <script src="js/bootstrap.min.js"></script>                 <!-- https://getbootstrap.com/ -->
-    <script src="js/datepicker.min.js"></script>                <!-- https://github.com/qodesmith/datepicker -->
-    <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-    <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
-    <script src="js/jquery.scrollTo.min.js"></script>           <!-- https://github.com/flesler/jquery.scrollTo -->
-    <script>
-        /* Google Maps
-        ------------------------------------------------*/
-        var map = '';
-            google.maps.event.addDomListener(map, 'idle', function() {
-              calculateCenter();
-          });
-
-            google.maps.event.addDomListener(window, 'resize', function() {
-              map.setCenter(center);
-          });
-        }
-
-        function calculateCenter() {
-            center = map.getCenter();
-        }
-
-        function loadGoogleMap(){
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWt4rJfibfsEDvcuaChUaZRS5NXey1Cs&v=3.exp&sensor=false&' + 'callback=initialize';
-            document.body.appendChild(script);
-        } 
-
-        /* DOM is ready
-        ------------------------------------------------*/
-        $(function(){
-
-            // Change top navbar on scroll
-            $(window).on("scroll", function() {
-                if($(window).scrollTop() > 100) {
-                    $(".tm-top-bar").addClass("active");
-                } else {                    
-                 $(".tm-top-bar").removeClass("active");
-                }
-            });
-
-            // Smooth scroll to search form
-            $('.tm-down-arrow-link').click(function(){
-                $.scrollTo('#tm-section-search', 300, {easing:'linear'});
-            });
-
-            // Date Picker in Search form
-            var pickerCheckIn = datepicker('#inputCheckIn');
-            var pickerCheckOut = datepicker('#inputCheckOut');
-
-            // Update nav links on scroll
-            $('#tm-top-bar').singlePageNav({
-                currentClass:'active',
-                offset: 60
-            });
-
-            // Close navbar after clicked
-            $('.nav-link').click(function(){
-                $('#mainNav').removeClass('show');
-            });
-
-            // Slick Carousel
-            $('.tm-slideshow').slick({
-                infinite: true,
-                arrows: true,
-                slidesToShow: 1,
-                slidesToScroll: 1
-            });
-
-            loadGoogleMap();                                       // Google Map                
-            $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright           
-        });
-
-    </script>             
-       </div>
+</div>
 </body>
 </html>
