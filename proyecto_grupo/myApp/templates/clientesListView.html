@@ -118,7 +118,7 @@ http://www.templatemo.com/tm-511-journey
                                 <tbody>
                                     {% for cliente in cliente_list %}
                                     <tr>
-                                        <td class="tabla" style="color:white">{{ cliente.nombre }}</td>
+                                        <td class="tabla" >{{ cliente.nombre }}</td>
                                         <td class="tabla" style="color:white">{{ cliente.empresa }}</td>
                                         <td class="tabla" style="color:white"><a href="{% url 'clientesDetailView' cliente.id %}">Ver</a> </td>
 
