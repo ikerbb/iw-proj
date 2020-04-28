@@ -6,6 +6,7 @@ from django.views.generic import DetailView, ListView, DeleteView, UpdateView
 from .models import Proyecto, Empleado, Tarea, Cliente
 
 
+
 def showInicio(request):
     return render(request, "index.html")
 

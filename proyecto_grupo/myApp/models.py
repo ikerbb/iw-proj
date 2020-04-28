@@ -14,7 +14,6 @@ class Cliente(models.Model):
         return f'{self.id}, {self.nombre}, {self.empresa}'
 
 #Clase para los empleados, donde se establecen las características a rellenar de los empleados que se incluyan.
-#Cada dato tendrá un tamaño máximo a incluir, excepto el telefono del empleado.
 #Al final mostrará por pantalla el id, nombre y apellidos del empleado.
 
 class Empleado(models.Model):
