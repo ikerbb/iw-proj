@@ -9,6 +9,9 @@ from .models import Proyecto, Empleado, Tarea, Cliente
 def showInicio(request):
     return render(request, "index.html")
 
+def showFAQ(request):
+    return render(request, "faq.html")
+
 
 class EmpleadosListView(ListView):
     model = Empleado

@@ -13,8 +13,8 @@ http://www.templatemo.com/tm-511-journey
 -->
     <!-- load stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">                <!-- Font Awesome -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">                <!-- Font Awesome -->
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'css/datepicker.css' %}">
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick.css' %}"/>
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick-theme.css' %}"/>
@@ -106,64 +106,17 @@ http://www.templatemo.com/tm-511-journey
 
 
                         <div class="row tm-banner-row" id="tm-section-search">
-
-                            <form action="{% url 'registroCliente' %}" method="post" class="tm-search-form tm-section-pad-2">
-                                {% csrf_token %}
-                                <div class="form-row tm-search-form-row">
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Nombre</label>
-                                        <input name="nombre" type="text" class="form-control" class="inputCity" placeholder="Nombre del contacto" required>
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Empresa</label>
-                                        <input name="empresa" type="text" class="form-control" class="inputCity" placeholder="Nombre de su empresa" required>
-                                    </div>
-
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                        <label for="inputCity">Telefono</label>
-                                        <input name="telefono" type="number" class="form-control" id="inputCity" placeholder="Telefono del contacto" required>
-                                    </div>
-
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">Email</label>
-                                        <input name="email" type="email" class="form-control" class="inputCity" placeholder="Email del contacto" required>
-                                    </div>
-                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                            <label for="inputCity">Datos adicionales</label>
-                                            <input name="datos_adicionales" type="text" class="form-control" class="inputCity" placeholder="Datos *opcionales*">
-                                        </div>
-
-
-
-                                </div> <!-- form-row -->
-                                <div class="form-row tm-search-form-row">
-
-
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label>Estado</label>
-                                        <select id="Prioridad" name="estado" class="form-control" style="height: 40px">
-                                            <optgroup label="-------">
-                                                <option>Fijo</option>
-                                                <option>Eventual</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="btnSubmit">&nbsp;</label>
-                                        <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Añadir cliente</button>
-                                    </div>
-
-                                </div>
-
-                            </form>
-
+                            <h1> ¿Quiénes somos? </h1>
+                            <p> Somos una empresa que se dedica a la realización de proyectos, principalmente de digitalización, en la zona norte del país.</p>
+                            <h1> ¿Cómo se usa la página? </h1>
+                            <p> En esta página se pueden crear proyectos, asignados a un cliente, unos empleados y con unas tareas. Pero, cuidado, <strong> LAS TAREAS SOLO SE PUEDEN CREAR DESPUÉS DE CREAR UN PROYECTO</strong> en el menú de crear Tareas. Además, se pueden crear, ver detalle, ver en listado, editar y eliminar todos los proyectos, tareas, clientes y empleados</p>
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
                 </div>     <!-- .tm-container-outer -->
             </section>
-</div>
+        </div>
+
 </div>
 </body>
 </html>
