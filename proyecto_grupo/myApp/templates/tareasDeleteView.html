@@ -101,8 +101,8 @@ http://www.templatemo.com/tm-511-journey
                             <form action="{% url 'tareasDeleteView' tarea.id %}" method="post">
                                 {% csrf_token %}
                                 <p style="color:white">¿Estás seguro de que deseas eliminar la tarea "{{ proyecto.nombre }}"?</p>
-                                <input type="submit" value="Sí"/>
-                                <a href="{% url 'tareasListView' %}"> No. Volver al listado de tareas </a>
+                                <input class="btn-primary" type="submit" value="Sí"/>
+                               <button class="btn-primary"> <a href="{% url 'tareasListView' %}"  style="color:white"> No. Volver al listado de tareas </a></button>
                             </form>
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>

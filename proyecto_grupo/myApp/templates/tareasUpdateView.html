@@ -103,7 +103,7 @@ http://www.templatemo.com/tm-511-journey
                             <form action="{% url 'tareasUpdateView' tarea.id %}" method="post" class="tm-search-form tm-section-pad-2">
                                 {% csrf_token %}
                                 {{ form.as_p }}
-                                <input type="submit" value="Actualizar"/>
+                                <input class="btn btn-primary tm-btn tm-btn-search text-uppercase" type="submit" value="Actualizar"/>
                             </form>
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
