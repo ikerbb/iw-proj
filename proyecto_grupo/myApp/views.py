@@ -188,6 +188,7 @@ def showCreateTareasView(request):
 
 def postCreateTareasView(request):
     nombre_tarea = request.POST["nombre"]
+    proyecto = request.POST["proyecto"]
     descripcion = request.POST["descripcion"]
     fecha_inicio = request.POST["fecha_inicio"]
     fecha_fin = request.POST["fecha_fin"]
@@ -199,6 +200,7 @@ def postCreateTareasView(request):
     tarea = Tarea()
 
     tarea.nombre_tarea = nombre_tarea
+    tarea.proyecto = proyecto
     tarea.descripcion = descripcion
     tarea.fecha_inicio = fecha_inicio
     tarea.fecha_fin = fecha_fin
