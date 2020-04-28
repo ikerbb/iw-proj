@@ -16,15 +16,10 @@ body {
     background: #e6e6e6;
 }
 
-.tablados{background-color: #fff;
+.tablados{
   color: black;
-  display: block;
-  padding: 50px 35px;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  height: 105.52px;
-  width: 119.33px}
+  
+  }
 
 
 
@@ -224,7 +219,13 @@ select.tm-select.form-control:not([size]):not([multiple]) { height: 45px; }
     font-size: 0.8rem;
     padding: .75rem;
 }
-label { font-weight: 700; }
+label { font-weight: 700;
+        color: black;}
+
+label{
+display:inline-block;
+margin-bottom: .5rem;}
+
 .tm-search-form {
     background-color: #f5f6f6;
     padding: 25px 25px 15px;
@@ -875,7 +876,8 @@ select.tm-select.form-control:not([size]):not([multiple]) { height: 45px; }
     font-size: 0.8rem;
     padding: .75rem;
 }
-label { font-weight: 700; }
+label { font-weight: 700;
+color: black;}
 .tm-search-form {
     background-color: #f5f6f6;
     padding: 25px 25px 15px;
