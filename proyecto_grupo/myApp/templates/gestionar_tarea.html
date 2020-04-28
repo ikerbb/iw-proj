@@ -109,13 +109,26 @@ http://www.templatemo.com/tm-511-journey
 
                             <form action="{% url 'registroTarea' %}" method="post" class="tm-search-form tm-section-pad-2">
                                 {% csrf_token %}
-                                <div class="form-row tm-search-form-row">                                
+                                <div class="form-row tm-search-form-row">
+
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label style="color:black">Añade una tarea al proyecto</label>
                                         <input name="nombre" type="text" class="form-control inputCity" placeholder="Nombre de la tarea..." required>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+<<<<<<< HEAD
                                         <label style="color:black">Descripción</label>
+=======
+                                        <label for="inputCity">Proyecto</label>
+                                        <select id="select_clientes" name="proyecto" required>
+                                                {% for proyecto in proyecto_list %}
+                                                <option value="{{ proyecto.id }}"> {{ proyecto.nombre }}</option>
+                                                {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                        <label for="inputCity">Descripción</label>
+>>>>>>> master
                                         <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="descripcion" class="inputCity form-control" placeholder="Descripción de la tarea..." required></textarea>
                                     </div>
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">

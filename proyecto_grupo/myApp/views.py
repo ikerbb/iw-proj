@@ -6,6 +6,7 @@ from django.views.generic import DetailView, ListView, DeleteView, UpdateView
 from .models import Proyecto, Empleado, Tarea, Cliente
 
 
+
 def showInicio(request):
     return render(request, "index.html")
 
@@ -181,11 +182,14 @@ class TareasUpdateView(UpdateView):
 
 
 def showCreateTareasView(request):
-    return render(request, 'gestionar_tarea.html')
+    proyecto_list = Proyecto.objects.order_by('nombre')
+    context = {'proyecto_list': proyecto_list}
+    return render(request, 'gestionar_tarea.html', context)
 
 
 def postCreateTareasView(request):
     nombre_tarea = request.POST["nombre"]
+    proyecto = request.POST["proyecto"]
     descripcion = request.POST["descripcion"]
     fecha_inicio = request.POST["fecha_inicio"]
     fecha_fin = request.POST["fecha_fin"]
@@ -197,6 +201,7 @@ def postCreateTareasView(request):
     tarea = Tarea()
 
     tarea.nombre_tarea = nombre_tarea
+    tarea.proyecto = proyecto
     tarea.descripcion = descripcion
     tarea.fecha_inicio = fecha_inicio
     tarea.fecha_fin = fecha_fin
