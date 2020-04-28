@@ -7,6 +7,7 @@ from .models import Proyecto, Empleado, Tarea, Cliente
 
 
 
+
 def showInicio(request):
     return render(request, "index.html")
 
@@ -134,15 +135,13 @@ def postCreateProyectosView(request):
     clientes = Cliente.objects.get(pk=cliente)
     proyecto.cliente = clientes
 
-    proyecto.save()
-    proyecto2 = Proyecto.objects.get(pk=proyecto.id)
+
     for emp in empleado_list:
         empleado = Empleado.objects.get(pk=emp)
-        proyecto2.empleados.add(empleado)
+        proyecto.empleados.add(empleado)
+    proyecto.save()
 
-    proyecto2.save()
-
-#   empleado = Empleado.objects.get(pk=empleado_list)
+    #   empleado = Empleado.objects.get(pk=empleado_list)
 #   proyecto.empleados = empleado
 
     return redirect('proyectosListView')
@@ -189,7 +188,7 @@ def showCreateTareasView(request):
 
 def postCreateTareasView(request):
     nombre_tarea = request.POST["nombre"]
-    proyecto = request.POST["proyecto"]
+    proyecto = request.POST("proyecto")
     descripcion = request.POST["descripcion"]
     fecha_inicio = request.POST["fecha_inicio"]
     fecha_fin = request.POST["fecha_fin"]
@@ -201,16 +200,24 @@ def postCreateTareasView(request):
     tarea = Tarea()
 
     tarea.nombre_tarea = nombre_tarea
-    tarea.proyecto = proyecto
+    Proyectos = Proyecto.objects.get(pk=proyecto)
+    tarea.proyecto = Proyectos
     tarea.descripcion = descripcion
     tarea.fecha_inicio = fecha_inicio
     tarea.fecha_fin = fecha_fin
-    tarea.nombre = nombre
+    Nombre = Empleado.objects.get(pk=nombre)
+    tarea.nombre = Nombre
     tarea.prioridad = prioridad
     tarea.estado = estado
     tarea.notas = notas
 
+
+
+
     tarea.save()
+
+
+
 
     return redirect('tareasListView')
 
