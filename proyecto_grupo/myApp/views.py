@@ -6,10 +6,9 @@ from django.views.generic import DetailView, ListView, DeleteView, UpdateView
 from .models import Proyecto, Empleado, Tarea, Cliente
 
 
-
-
 def showInicio(request):
     return render(request, "index.html")
+
 
 def showFAQ(request):
     return render(request, "faq.html")
@@ -33,6 +32,7 @@ class EmpleadosDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(EmpleadosDetailView, self).get_context_data(**kwargs)
         return context
+
 
 class EmpleadosDeleteView(DeleteView):
     model = Empleado
@@ -95,6 +95,7 @@ class ProyectosDetailView(DetailView):
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
+
 class ProyectosDeleteView(DeleteView):
     model = Proyecto
     template_name = 'proyectosDeleteView.html'
@@ -122,7 +123,6 @@ def postCreateProyectosView(request):
     fecha_fin = request.POST["fecha_final"]
     presupuesto = request.POST["Presupuesto"]
     cliente = request.POST["cliente"]
-    empleado_list = request.POST.getlist("empleados")
 
     proyecto = Proyecto()
 
@@ -132,17 +132,20 @@ def postCreateProyectosView(request):
     proyecto.fecha_fin = fecha_fin
     proyecto.presupuesto = presupuesto
 
-    clientes = Cliente.objects.get(pk=cliente)
-    proyecto.cliente = clientes
+    proyecto.cliente = Cliente.objects.get(pk=cliente)
+    proyecto.save()
 
 
-    for emp in empleado_list:
+    empleado_List = request.POST.getlist("empleados")
+
+
+    for emp in empleado_List:
         empleado = Empleado.objects.get(pk=emp)
         proyecto.empleados.add(empleado)
     proyecto.save()
 
     #   empleado = Empleado.objects.get(pk=empleado_list)
-#   proyecto.empleados = empleado
+    #   proyecto.empleados = empleado
 
     return redirect('proyectosListView')
 
@@ -167,6 +170,7 @@ class TareasDetailView(DetailView):
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
+
 class TareasDeleteView(DeleteView):
     model = Tarea
     template_name = 'tareasDeleteView.html'
@@ -182,7 +186,8 @@ class TareasUpdateView(UpdateView):
 
 def showCreateTareasView(request):
     proyecto_list = Proyecto.objects.order_by('nombre')
-    context = {'proyecto_list': proyecto_list}
+    responsable_list = Empleado.objects.order_by('nombre')
+    context = {'proyecto_list': proyecto_list, 'responsable_list': responsable_list}
     return render(request, 'gestionar_tarea.html', context)
 
 
@@ -211,13 +216,7 @@ def postCreateTareasView(request):
     tarea.estado = estado
     tarea.notas = notas
 
-
-
-
     tarea.save()
-
-
-
 
     return redirect('tareasListView')
 
