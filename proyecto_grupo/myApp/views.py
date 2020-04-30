@@ -187,11 +187,10 @@ class TareasListView(ListView):
 
     # Funcion que genera el contenido del diccionario que se le pasa a la pagina
 
-    def get_context_object_name(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super(TareasListView, self).get_context_data(**kwargs)
         # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
-
 
 # Clase para la vista en detalle de una tarea
 
