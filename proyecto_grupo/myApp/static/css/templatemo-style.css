@@ -16,8 +16,8 @@ body {
     background: #e6e6e6;
 }
 
-.tablados{background-color: pink;
-  color: black;
+.tablados{
+  color: white;
   display: block;
   padding: 50px 35px;
   font-size: 16px;
@@ -26,7 +26,7 @@ body {
   height: 105.52px;
   width: 119.33px}
 
-th .objetotabla{
+th.objetotabla{
 color: white;
 padding: 10px;
 margin: 10px;}
