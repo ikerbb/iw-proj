@@ -1,17 +1,11 @@
 {% extends "base.html "%}
-
 {% load static %}
-
-
 {% block content%}
         <div class="tm-page-wrap mx-auto" style="max-height:500px ">
             <section class="tm-banner">
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
-
-
                         <div class="row tm-banner-row" id="tm-section-search">
-
                             <form action="{% url 'registroCliente' %}" method="post" class="tm-search-form tm-section-pad-2">
                                 {% csrf_token %}
                                 <div class="form-row tm-search-form-row">
@@ -23,12 +17,10 @@
                                         <label style="color:black" for="inputCity">Empresa</label>
                                         <input name="empresa" type="text" class="form-control" class="inputCity" placeholder="Nombre de su empresa" required>
                                     </div>
-
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                         <label style="color:black" for="inputCity">Telefono</label>
                                         <input name="telefono" type="number" class="form-control" id="inputCity" placeholder="Telefono del contacto" required>
                                     </div>
-
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label style="color:black" for="inputCity">Email</label>
                                         <input name="email" type="email" class="form-control" class="inputCity" placeholder="Email del contacto" required>
@@ -37,13 +29,8 @@
                                             <label style="color:black" for="inputCity">Datos adicionales</label>
                                             <input name="datos_adicionales" type="text" class="form-control" class="inputCity" placeholder="Datos *opcionales*">
                                         </div>
-
-
-
                                 </div> <!-- form-row -->
                                 <div class="form-row tm-search-form-row">
-
-
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
                                         <label style="color:black">Estado</label>
                                         <select id="Prioridad" name="estado" class="form-control" style="height: 40px">
@@ -53,20 +40,16 @@
                                             </optgroup>
                                         </select>
                                     </div>
-
                                     <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                         <label for="btnSubmit">&nbsp;</label>
                                         <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Añadir cliente</button>
                                     </div>
-
                                 </div>
-
                             </form>
-
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
                 </div>     <!-- .tm-container-outer -->
             </section>
-</div>
+        </div>
 {% endblock%}

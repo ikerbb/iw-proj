@@ -1,16 +1,11 @@
 {% extends "base.html "%}
 {% load static %}
-
-
 {% block content %}
         <div class="tm-page-wrap mx-auto" style="max-height:500px ">
             <section class="tm-banner">
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
-
-
                         <div class="row tm-banner-row" id="tm-section-search">
-
                             <table class="tm-d-table">
                                 <thead>
                                     <tr>
@@ -25,13 +20,10 @@
                                         <td class="tabla" >{{ cliente.nombre }}</td>
                                         <td class="tabla" style="color:white">{{ cliente.empresa }}</td>
                                         <td class="tabla" style="color:white"><a href="{% url 'clientesDetailView' cliente.id %}">Ver</a> </td>
-
                                     </tr>
                                     {% endfor %}
                                 </tbody>
-
                             </table>
-
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->

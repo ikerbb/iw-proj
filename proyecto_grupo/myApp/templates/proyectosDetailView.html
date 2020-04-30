@@ -33,9 +33,16 @@
                                         <td style="color:white">{{ proyecto.fecha_fin }}</td>
                                         <td style="color:white">{{ proyecto.presupuesto }}</td>
                                         <td style="color:white">{{ proyecto.cliente }}</td>
-                                        <td style="color:white">{{ proyecto.empleados }}</td>
-                                        <td style="color:white"><a href="{% url 'proyectosUpdateView' proyecto.id %}">Actualizar</a> </td>
-                                        <td style="color:white"><a href="{% url 'proyectosDeleteView' proyecto.id %}">Borrar</a> </td>
+                                        <td style="color:white">
+                                            {% for emp in empleados %}
+                                            <ul>
+                                                ·{{emp.nombre}} {{emp.apellidos}}
+                                            </ul>
+                                            {% endfor %}
+                                        </td>
+                                        <td style="color:white">{{ proyecto.empleado }}</td>
+                                        <td style="color:white"><a href="{% url 'proyectosUpdateView' proyecto.id %}">Actualizar</a></td>
+                                        <td style="color:white"><a href="{% url 'proyectosDeleteView' proyecto.id %}">Borrar</a></td>
 
                                     </tr>
                                 </tbody>

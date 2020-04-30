@@ -5,10 +5,7 @@
             <section class="tm-banner">
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
-
-
                         <div class="row tm-banner-row" id="tm-section-search">
-
                              <table>
                                 <thead>
                                     <tr>
@@ -22,7 +19,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <tr>
                                         <td style="color:white">{{ cliente.nombre }}</td>
                                         <td style="color:white">{{ cliente.empresa }}</td>
@@ -33,12 +29,11 @@
                                         <td style="color:white"><a href="{% url 'clientesDeleteView' cliente.id %}">Borrar</a> </td>
                                     </tr>
                                 </tbody>
-
                             </table>
-
                         </div> <!-- row -->
                         <div class="tm-banner-overlay"></div>
                     </div>  <!-- .container -->
                 </div>     <!-- .tm-container-outer -->
             </section>
+         </div>
 {% endblock %}
