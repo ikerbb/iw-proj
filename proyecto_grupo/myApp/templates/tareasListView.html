@@ -11,22 +11,22 @@
 
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <table>
+                            <table class="tablados">
                                 <thead>
                                     <tr>
-                                        <th style="color:white">Nombre</th>
-                                        <th style="color:white">Responsable</th>
-                                        <th style="color:white">Estado</th>
-                                        <th style="color:white">Ver</th>
+                                        <th class="tablados">Nombre</th>
+                                        <th class="tablados">Responsable</th>
+                                        <th class="tablados">Estado</th>
+                                        <th class="tablados">Ver</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for tarea in tarea_list %}
                                     <tr>
-                                        <td style="color:white">{{ tarea.nombre_tarea }}</td>
-                                        <td style="color:white">{{ tarea.nombre }}</td>
-                                        <td style="color:white">{{ tarea.estado }}</td>
-                                        <td style="color:white"><a href="{% url 'tareasDetailView' tarea.id ">Ver</a> </td>
+                                        <td class="tablados">{{ tarea.nombre_tarea }}</td>
+                                        <td class="tablados">{{ tarea.nombre }}</td>
+                                        <td class="tablados">{{ tarea.estado }}</td>
+                                        <td class="tablados"><a href="{% url 'tareasDetailView' tarea.id ">Ver</a> </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

@@ -11,22 +11,22 @@
 
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <table>
+                            <table class="tablados">
                                 <thead>
                                     <tr>
-                                        <th style="color:white">Nombre</th>
-                                        <th style="color:white">Descripcion</th>
-                                        <th style="color:white">Cliente</th>
-                                        <th style="color:white">Ver</th>
+                                        <th class="tablados">Nombre</th>
+                                        <th class="tablados">Descripcion</th>
+                                        <th class="tablados">Cliente</th>
+                                        <th class="tablados">Ver</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for proyecto in proyecto_list %}
                                     <tr>
-                                        <td style="color:white">{{ proyecto.nombre }}</td>
-                                        <td style="color:white">{{ proyecto.descripcion }}</td>
-                                        <td style="color:white">{{ proyecto.cliente }}</td>
-                                        <td style="color:white"><a href="{% url 'proyectosDetailView' proyecto.id %}">Ver</a> </td>
+                                        <td class="tablados">{{ proyecto.nombre }}</td>
+                                        <td class="tablados">{{ proyecto.descripcion }}</td>
+                                        <td class="tablados">{{ proyecto.cliente }}</td>
+                                        <td class="tablados"><a href="{% url 'proyectosDetailView' proyecto.id %}">Ver</a> </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

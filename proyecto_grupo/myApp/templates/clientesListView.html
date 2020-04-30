@@ -6,20 +6,20 @@
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
                         <div class="row tm-banner-row" id="tm-section-search">
-                            <table class="tm-d-table">
+                            <table class="tablados">
                                 <thead>
                                     <tr>
-                                        <th class="titulo-tabla" style="color:white">Nombre</th>
-                                        <th class="titulo-tabla" style="color:white">Empresa</th>
-                                        <th class="titulo-tabla" style="color:white">Ver</th>
+                                        <th class="tablados">Nombre</th>
+                                        <th class="tablados">Empresa</th>
+                                        <th class="tablados">Ver</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for cliente in cliente_list %}
                                     <tr>
-                                        <td class="tabla" >{{ cliente.nombre }}</td>
-                                        <td class="tabla" style="color:white">{{ cliente.empresa }}</td>
-                                        <td class="tabla" style="color:white"><a href="{% url 'clientesDetailView' cliente.id %}">Ver</a> </td>
+                                        <td class="tablados" >{{ cliente.nombre }}</td>
+                                        <td class="tablados">{{ cliente.empresa }}</td>
+                                        <td class="tablados"><a href="{% url 'clientesDetailView' cliente.id %}">Ver</a> </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

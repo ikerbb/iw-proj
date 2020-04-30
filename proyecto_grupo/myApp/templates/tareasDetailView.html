@@ -11,35 +11,35 @@
 
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <table>
+                            <table class="tablados">
                                 <thead>
                                     <tr>
-                                        <th style="color:white">Nombre</th>
-                                        <th style="color:white">Proyecto</th>
-                                        <th style="color:white">Descripcion</th>
-                                        <th style="color:white">Fecha de inicio</th>
-                                        <th style="color:white">Fecha final</th>
-                                        <th style="color:white">Responsable</th>
-                                        <th style="color:white">Prioridad</th>
-                                        <th style="color:white">Estado</th>
-                                        <th style="color:white">Notas</th>
-                                        <th style="color:white">Editar</th>
-                                        <th style="color:white">Borrar</th>
+                                        <th class="tablados">Nombre</th>
+                                        <th class="tablados">Proyecto</th>
+                                        <th class="tablados">Descripcion</th>
+                                        <th class="tablados">Fecha de inicio</th>
+                                        <th class="tablados">Fecha final</th>
+                                        <th class="tablados">Responsable</th>
+                                        <th class="tablados">Prioridad</th>
+                                        <th class="tablados">Estado</th>
+                                        <th class="tablados">Notas</th>
+                                        <th class="tablados">Editar</th>
+                                        <th class="tablados">Borrar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="color:white">{{ tarea.nombre_tarea }}</td>
-                                        <td style="color:white">{{ tarea.proyecto }}</td>
-                                        <td style="color:white">{{ tarea.descripcion }}</td>
-                                        <td style="color:white">{{ tarea.fecha_inicio }}</td>
-                                        <td style="color:white">{{ tarea.fecha_fin }}</td>
-                                        <td style="color:white">{{ tarea.nombre }}</td>
-                                        <td style="color:white">{{ tarea.prioridad }}</td>
-                                        <td style="color:white">{{ tarea.estado }}</td>
-                                        <td style="color:white">{{ tarea.notas }}</td>
-                                        <td style="color:white"><a href="{% url 'tareasUpdateView' tarea.id %}">Actualizar</a> </td>
-                                        <td style="color:white"><a href="{% url 'tareasDeleteView' tarea.id %}">Borrar</a> </td>
+                                        <td class="tablados">{{ tarea.nombre_tarea }}</td>
+                                        <td class="tablados">{{ tarea.proyecto }}</td>
+                                        <td class="tablados">{{ tarea.descripcion }}</td>
+                                        <td class="tablados">{{ tarea.fecha_inicio }}</td>
+                                        <td class="tablados">{{ tarea.fecha_fin }}</td>
+                                        <td class="tablados">{{ tarea.nombre }}</td>
+                                        <td class="tablados">{{ tarea.prioridad }}</td>
+                                        <td class="tablados">{{ tarea.estado }}</td>
+                                        <td class="tablados">{{ tarea.notas }}</td>
+                                        <td class="tablados"><a href="{% url 'tareasUpdateView' tarea.id %}">Actualizar</a> </td>
+                                        <td class="tablados"><a href="{% url 'tareasDeleteView' tarea.id %}">Borrar</a> </td>
 
                                     </tr>
                                 </tbody>

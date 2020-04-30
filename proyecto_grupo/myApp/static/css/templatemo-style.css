@@ -16,15 +16,19 @@ body {
     background: #e6e6e6;
 }
 
+.logo{
+   height: 20px;
+   width; 20px;}
+
 .tablados{
   color: white;
   display: block;
-  padding: 50px 35px;
+  padding: 5px 3px;
   font-size: 16px;
   font-weight: 700;
-  border: none;
-  height: 105.52px;
-  width: 119.33px}
+  border: 1px;
+
+
 
 th.objetotabla{
 color: white;
