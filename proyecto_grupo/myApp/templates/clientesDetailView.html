@@ -6,27 +6,27 @@
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
                         <div class="row tm-banner-row" id="tm-section-search">
-                             <table class="tablados">
+                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="tablados">Nombre</th>
-                                        <th class="tablados">Empresa</th>
-                                        <th class="tablados">Telefono</th>
-                                        <th class="tablados">Email</th>
-                                        <th class="tablados">Datos adicionales</th>
-                                        <th class="tablados">Editar</th>
-                                        <th class="tablados">Borrar</th>
+                                        <th style="color:white">Nombre</th>
+                                        <th style="color:white">Empresa</th>
+                                        <th style="color:white">Telefono</th>
+                                        <th style="color:white">Email</th>
+                                        <th style="color:white">Datos adicionales</th>
+                                        <th style="color:white">Editar</th>
+                                        <th style="color:white">Borrar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="tablados">{{ cliente.nombre }}</td>
-                                        <td class="tablados">{{ cliente.empresa }}</td>
-                                        <td class="tablados">{{ cliente.telefono }}</td>
-                                        <td class="tablados">{{ cliente.email }}</td>
-                                        <td class="tablados">{{ cliente.datos_adicionales }}</td>
-                                        <td class="tablados"><a href="{% url 'clientesUpdateView' cliente.id %}">Actualizar</a> </td>
-                                        <td class="tablados"><a href="{% url 'clientesDeleteView' cliente.id %}">Borrar</a> </td>
+                                        <td style="color:white">{{ cliente.nombre }}</td>
+                                        <td style="color:white">{{ cliente.empresa }}</td>
+                                        <td style="color:white">{{ cliente.telefono }}</td>
+                                        <td style="color:white">{{ cliente.email }}</td>
+                                        <td style="color:white">{{ cliente.datos_adicionales }}</td>
+                                        <td style="color:white"><a href="{% url 'clientesUpdateView' cliente.id %}">Actualizar</a> </td>
+                                        <td style="color:white"><a href="{% url 'clientesDeleteView' cliente.id %}">Borrar</a> </td>
                                     </tr>
                                 </tbody>
                             </table>
