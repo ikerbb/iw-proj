@@ -7,8 +7,8 @@ http://www.templatemo.com/tm-511-journey
 Primary color (light blue)  : #69c6ba
 Highlight color (pink)		: #c66995
 --------------------------------------
-
 */
+
 body {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 13px;
@@ -16,7 +16,21 @@ body {
     background: #e6e6e6;
 }
 
-th .objetotabla{
+.logo{
+   height: 20px;
+   width; 20px;}
+
+.tablados{
+  color: white;
+  display: block;
+  padding: 5px 3px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px;
+
+
+
+th.objetotabla{
 color: white;
 padding: 10px;
 margin: 10px;}

@@ -2,7 +2,7 @@ from django.forms import forms
 from django.urls import path
 from . import views
 
-#nombre de las urls creadas, junto con la vista que ejecuta cada una de ellas y el nombre que se usa para abrir cada url desde los html creados.
+#nombre de las urls creadas, junto con la vista que ejecuta cada una de ellas y el nombre que se usa para llamar a cada url desde los html creados.
 
 urlpatterns = [
     path('', views.showInicio, name='index'),
@@ -14,7 +14,7 @@ urlpatterns = [
     path('empleados/actualizar/<int:pk>',views.EmpleadosUpdateView.as_view(), name='empleadosUpdateView'),
     path('empleados/borrar/<int:pk>', views.EmpleadosDeleteView.as_view(), name='empleadosDeleteView'),
     path('proyectos/', views.ProyectosListView.as_view(), name='proyectosListView'),
-    path('proyectos/<int:pk>/', views.ProyectosDetailView.as_view(), name='proyectosDetailView'),
+    path('proyectos/<int:proyecto_id>/', views.verProyecto, name='proyectosDetailView'),
     path('proyectos/registro/', views.showCreateProyectosView, name='registrarProyecto'),
     path('proyectos/registro/action', views.postCreateProyectosView, name='registroProyecto'),
     path('proyectos/actualizar/<int:pk>/', views.ProyectosUpdateView.as_view(), name='proyectosUpdateView'),

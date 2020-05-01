@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Empleado,Tarea,Cliente,Proyecto
 
-# Register your models here.
+# Con esto registramos los modelos para poder tratarlos desde la aplicación de administrador
 
 admin.site.register(Empleado)
 admin.site.register(Tarea)
