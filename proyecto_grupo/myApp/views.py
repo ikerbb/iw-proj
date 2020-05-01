@@ -189,7 +189,6 @@ class TareasListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TareasListView, self).get_context_data(**kwargs)
-        # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
 # Clase para la vista en detalle de una tarea
@@ -320,7 +319,7 @@ def showCreateClientesView(request):
 # Redirige al listado de clientes
 
 def postCreateClientesView(request):
-    nombre = request.POST["nombre"]
+    Nombre = request.POST["nombre"]
     empresa = request.POST["empresa"]
     telefono = request.POST["telefono"]
     email = request.POST["email"]
@@ -328,7 +327,7 @@ def postCreateClientesView(request):
 
     cliente = Cliente()
 
-    cliente.nombre = nombre
+    cliente.nombre = Nombre
     cliente.empresa = empresa
     cliente.telefono = telefono
     cliente.email = email
