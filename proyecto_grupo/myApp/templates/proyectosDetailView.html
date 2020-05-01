@@ -11,29 +11,29 @@
 
                         <div class="row tm-banner-row" id="tm-section-search">
 
-                            <table>
+                            <table class="tablados">
                                 <thead>
                                     <tr>
-                                        <th style="color:white">Nombre</th>
-                                        <th style="color:white">Descripcion</th>
-                                        <th style="color:white">Fecha de inicio</th>
-                                        <th style="color:white">Fecha final</th>
-                                        <th style="color:white">Presupuesto</th>
-                                        <th style="color:white">Cliente</th>
-                                        <th style="color:white">Empleados</th>
-                                        <th style="color:white">Editar</th>
-                                        <th style="color:white">Borrar</th>
+                                        <th class="tablados">Nombre</th>
+                                        <th class="tablados">Descripcion</th>
+                                        <th class="tablados">Fecha de inicio</th>
+                                        <th class="tablados">Fecha final</th>
+                                        <th class="tablados">Presupuesto</th>
+                                        <th class="tablados">Cliente</th>
+                                        <th class="tablados">Empleados</th>
+                                        <th class="tablados">Editar</th>
+                                        <th class="tablados">Borrar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="color:white">{{ proyecto.nombre }}</td>
-                                        <td style="color:white">{{ proyecto.descripcion }}</td>
-                                        <td style="color:white">{{ proyecto.fecha_inicio }}</td>
-                                        <td style="color:white">{{ proyecto.fecha_fin }}</td>
-                                        <td style="color:white">{{ proyecto.presupuesto }}</td>
-                                        <td style="color:white">{{ proyecto.cliente }}</td>
-                                        <td style="color:white">
+                                        <td class="tablados">{{ proyecto.nombre }}</td>
+                                        <td class="tablados">{{ proyecto.descripcion }}</td>
+                                        <td class="tablados">{{ proyecto.fecha_inicio }}</td>
+                                        <td class="tablados">{{ proyecto.fecha_fin }}</td>
+                                        <td class="tablados">{{ proyecto.presupuesto }}</td>
+                                        <td class="tablados">{{ proyecto.cliente }}</td>
+                                        <td class="tablados">
                                             {% for emp in empleados %}
                                             <ul>
                                                 ·{{emp.nombre}} {{emp.apellidos}}

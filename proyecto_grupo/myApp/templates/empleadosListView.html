@@ -10,17 +10,17 @@
                             <table class="tablados">
                                 <thead>
                                     <tr>
-                                        <th style="color:white">Nombre</th>
-                                        <th style="color:white">Apellidos</th>
-                                        <th style="color:white">Ver</th>
+                                        <th class="tablados">Nombre</th>
+                                        <th class="tablados">Apellidos</th>
+                                        <th class="tablados">Ver</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for empleado in empleado_list %}
                                     <tr>
-                                        <td style="color:white">{{ empleado.nombre }}</td>
-                                        <td style="color:white">{{ empleado.apellidos }}</td>
-                                        <td style="color:white"><a href="{% url 'empleadosDetailView' empleado.id %}">Ver</a> </td>
+                                        <td class="tablados">{{ empleado.nombre }}</td>
+                                        <td class="tablados">{{ empleado.apellidos }}</td>
+                                        <td class="tablados"><a href="{% url 'empleadosDetailView' empleado.id %}">Ver</a> </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

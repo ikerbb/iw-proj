@@ -7,29 +7,29 @@
                 <div class="tm-container-outer tm-banner-bg">
                     <div class="container">
                         <div class="row tm-banner-row" id="tm-section-search">
-                            <table>
+                            <table class="tablados">
                                 <thead>
                                     <tr>
-                                        <th style="color:white">DNI</th>
-                                        <th style="color:white">Nombre</th>
-                                        <th style="color:white">Apellidos</th>
-                                        <th style="color:white">Email</th>
-                                        <th style="color:white">Telefono</th>
-                                        <th style="color:white">Estado</th>
-                                        <th style="color:white">Editar</th>
-                                        <th style="color:white">Borrar</th>
+                                        <th class="tablados">DNI</th>
+                                        <th class="tablados">Nombre</th>
+                                        <th class="tablados">Apellidos</th>
+                                        <th class="tablados">Email</th>
+                                        <th class="tablados">Telefono</th>
+                                        <th class="tablados">Estado</th>
+                                        <th class="tablados">Editar</th>
+                                        <th class="tablados">Borrar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="color:white">{{ empleado.dni }}</td>
-                                        <td style="color:white">{{ empleado.nombre }}</td>
-                                        <td style="color:white">{{ empleado.apellidos }}</td>
-                                        <td style="color:white">{{ empleado.email }}</td>
-                                        <td style="color:white">{{ empleado.telefono }}</td>
-                                        <td style="color:white">{{ empleado.estado }}</td>
-                                        <td style="color:white"><a href="{% url 'empleadosUpdateView' empleado.id %}">Actualizar</a> </td>
-                                        <td style="color:white"><a href="{% url 'empleadosDeleteView' empleado.id %}">Borrar</a> </td>
+                                        <td class="tablados">{{ empleado.dni }}</td>
+                                        <td class="tablados">{{ empleado.nombre }}</td>
+                                        <td class="tablados">{{ empleado.apellidos }}</td>
+                                        <td class="tablados">{{ empleado.email }}</td>
+                                        <td class="tablados">{{ empleado.telefono }}</td>
+                                        <td class="tablados">{{ empleado.estado }}</td>
+                                        <td class="tablados"><a href="{% url 'empleadosUpdateView' empleado.id %}">Actualizar</a> </td>
+                                        <td class="tablados"><a href="{% url 'empleadosDeleteView' empleado.id %}">Borrar</a> </td>
                                     </tr>
                                 </tbody>
                             </table>
