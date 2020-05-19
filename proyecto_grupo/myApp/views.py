@@ -1,3 +1,8 @@
+from email.mime.base import MIMEBase
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from smtplib import SMTP
+
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
@@ -91,7 +96,27 @@ def postCreateEmpleadosView(request):
 
     empleado.save()
 
+    miEmail = "deustotiltech@gmail.com"
+    destinatario = "ikerbb@opendeusto.es"
+    cuerpo = f"Buenos días: se ha registrado un nuevo empleado en la base de datos. Nombre: {nombre}; Apellidos: {apellidos}. Un saludo "
+    mensaje = MIMEMultipart("plain")
+    mensaje["From"] = miEmail
+    mensaje["To"] = destinatario
+    mensaje["Subject"] = "Confirmación de alta de empleado"
+    mensaje.attach(MIMEText(cuerpo, 'plain'))
+#    adjunto = MIMEBase("application", "octect-stream")
+#    adjunto.set_payload(open("email.txt", "rb").read())
+#    adjunto.add_header("content-Disposition", 'attachment; filename="ConfirmacionDeAlta.txt"')
+#    mensaje.attach(adjunto)
+    smtp = SMTP("smtp.gmail.com")
+    smtp.starttls()
+    smtp.login(miEmail, "ikerainaraaritz")
+    smtp.sendmail(miEmail, destinatario, mensaje.as_string())
+    smtp.quit()
+
     return redirect('empleadosListView')
+
+
 
 
 # Clase para la visualizacion del listado de Proyectos
