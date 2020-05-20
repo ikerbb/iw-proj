@@ -16,6 +16,15 @@ body {
     background: #e6e6e6;
 }
 
+
+
+footer{
+color: white;
+height: 250px;
+font-family: Courier, monospace;
+font-size: 30 px;
+}
+
 .tablados{
   color: white;
   display: block;
