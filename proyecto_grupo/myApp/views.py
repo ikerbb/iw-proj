@@ -106,7 +106,7 @@ def postCreateEmpleadosView(request):
     mensaje.attach(MIMEText(cuerpo, 'plain'))
 #    adjunto = MIMEBase("application", "octect-stream")
 #    adjunto.set_payload(open("email.txt", "rb").read())
-#    adjunto.add_header("content-Disposition", 'attachment; filename="ConfirmacionDeAlta.txt"')
+#    adjunto.add_header("content-Disposition", 'attachment; filename="email.txt"')
 #    mensaje.attach(adjunto)
     smtp = SMTP("smtp.gmail.com")
     smtp.starttls()
