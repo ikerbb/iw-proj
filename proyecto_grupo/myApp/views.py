@@ -41,7 +41,7 @@ def postPregunta(request):
         pregunta.mensaje = request.POST['mensaje']
         pregunta.save()
 
-        return redirect('index')
+        return JsonResponse(model_to_dict(pregunta))
 
 # Clase que se encarga de mostrar el listado de empleados
 
