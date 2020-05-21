@@ -95,6 +95,59 @@ http://www.templatemo.com/tm-511-journey
                                         <a href="{% url 'faq' %}"><button class="dropbtn"> Ver FAQ</button></a>
                                     </li>
                                 </div>
+                                <div class="dropdown">
+                                    <li class="nav-item">
+                                         <div>
+                                            <form action="" class="search">
+
+                                                <input id="submit" value="" type="submit">
+                                                <label for="submit" class="submit"></label>
+
+                                                <a href='javascript:onclick=window.open(lead_data.php?leadid=1, myWin, scrollbars=yes, width=400, height=650);' class="icon">1</a>
+                                                <input type="search" name="Search" id="search" placeholder="Search">
+                                            </form>
+
+                                            <script>
+                                                $(".icon").click(function() {
+	var icon = $(this),
+			input = icon.parent().find("#search"),
+			submit = icon.parent().find(".submit"),
+			is_submit_clicked = false;
+
+	// Animate the input field
+	input.animate({
+		"width": "165px",
+		"padding": "10px",
+		"opacity": 1
+	}, 300, function() {
+		input.focus();
+	});
+
+	submit.mousedown(function() {
+		is_submit_clicked = true;
+	});
+
+	// Now, we need to hide the icon too
+	icon.fadeOut(300);
+
+	// Looks great, but what about hiding the input when it loses focus and doesnt contain any value? Lets do that too
+	input.blur(function() {
+		if(!input.val() && !is_submit_clicked) {
+			input.animate({
+				"width": "0",
+				"padding": "0",
+				"opacity": 0
+			}, 200);
+
+			// Get the icon back
+			icon.fadeIn(200);
+		};
+	});
+});
+                                            </script>
+                                         </div>
+                                    </li>
+                                </div>
                             </ul>
                         </div>
                     </nav>
