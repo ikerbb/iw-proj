@@ -92,6 +92,7 @@ def postCreateEmpleadosView(request):
     empleado.save()
 
     return redirect('empleadosListView')
+    return JsonResponse(model_to_dirct(empleado))
 
 
 # Clase para la visualizacion del listado de Proyectos
