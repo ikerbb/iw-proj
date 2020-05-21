@@ -7,6 +7,8 @@ from . import views
 urlpatterns = [
     path('', views.showInicio, name='index'),
     path('faq/', views.showFAQ, name='faq'),
+    path('preguntas/', views.getListaPreguntas, name='preguntasListView'),
+    path('preguntas/registro/', views.postPregunta, name='registrarPregunta'),
     path('empleados/', views.EmpleadosListView.as_view(), name='empleadosListView'),
     path('empleados/<int:pk>/', views.EmpleadosDetailView.as_view(), name='empleadosDetailView'),
     path('empleados/registro/', views.showCreateEmpleadosView, name='registrarEmpleado'),
