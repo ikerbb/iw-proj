@@ -3,12 +3,17 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from smtplib import SMTP
 
+from django.forms import model_to_dict
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from django.urls import reverse_lazy, reverse
+from django.utils.decorators import method_decorator
+from django.views import View
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, ListView, DeleteView, UpdateView
-from .models import Proyecto, Empleado, Tarea, Cliente
+from .models import Proyecto, Empleado, Tarea, Cliente, Pregunta
 
 
 # Funcion que muestra el menú de inicio
@@ -22,6 +27,21 @@ def showInicio(request):
 def showFAQ(request):
     return render(request, "faq.html")
 
+@method_decorator(csrf_exempt, name='dispatch')
+def getListaPreguntas(request):
+    lista = Pregunta.objects.all()
+    return JsonResponse(list(lista.values()), safe=False)
+
+@method_decorator(csrf_exempt, name='dispatch')
+
+def postPregunta(request):
+        pregunta = Pregunta()
+        pregunta.usuario = request.POST['usuario']
+        pregunta.titulo = request.POST['titulo']
+        pregunta.mensaje = request.POST['mensaje']
+        pregunta.save()
+
+        return JsonResponse(model_to_dict(pregunta))
 
 # Clase que se encarga de mostrar el listado de empleados
 

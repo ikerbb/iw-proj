@@ -66,6 +66,14 @@ class Tarea(models.Model):
     def __str__(self):
         return f'{self.id}, {self.nombre_tarea}'
 
+class Pregunta(models.Model):
+    usuario = models.CharField(max_length=100)
+    titulo = models.CharField(max_length=100)
+    mensaje = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return f'{self.usuario}, {self.titulo}, {self.mensaje}'
+
 
 
 
