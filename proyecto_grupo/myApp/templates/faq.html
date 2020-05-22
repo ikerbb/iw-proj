@@ -14,8 +14,12 @@
                                 <h1 style="color: black"> ¿Cómo se usa la página? </h1>
                                 <p style="color: black"> En esta página se pueden crear proyectos, asignados a un cliente, unos empleados y con unas tareas. Pero, cuidado, <strong> LAS TAREAS SOLO SE PUEDEN CREAR DESPUÉS DE CREAR UN PROYECTO</strong> en el menú de crear Tareas. Además, se pueden crear, ver detalle, ver en listado, editar y eliminar todos los proyectos, tareas, clientes y empleados</p>
                             </form>
-                            <div id="div_js" class="row tm-banner-row"></div>
-                                <form id= "form_js" class="tm-search-form tm-section-pad-2" name="formulario">
+
+
+
+                            <div id="div_js" class="row tm-banner-row">
+                                <form method="POST" action="{% url 'registrarPregunta' %}" class="tm-search-form tm-section-pad-2" name="formulario">
+
                                     {% csrf_token %}
                                      <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
@@ -24,11 +28,11 @@
                                         </div>
                                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label style="color:black">Titulo</label>
-                                            <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="titulo" class="form-control" placeholder="Escribe aquí tu pregunta"></textarea>
+                                            <input style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="titulo" class="form-control" placeholder="Escribe aquí tu pregunta"></input>
                                         </div>
                                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label style="color:black">Mensaje</label>
-                                            <textarea style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="mensaje" class="form-control" placeholder="Escribe aquí tu pregunta"></textarea>
+                                            <input style="height: 100px;max-height: 100px; min-height: 100px" id="pregunta" type="text" name="mensaje" class="form-control" placeholder="Escribe aquí tu pregunta"></input>
                                         </div>
                                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label for="btnSubmit">&nbsp;</label>
@@ -41,66 +45,25 @@
                                      </div>
                                 </form>
                             </div>
+
                         </div> <!-- row -->
                     </div>  <!-- .container -->
                 <!-- .tm-container-outer -->
-            </section>
+                </div> </section>
         </div>
 
 <script>
-    window.onload=function(){
-    function create(){
-    event.preventDefault()
-    var formulario = new FormData(document.getElementById("form_js"))
-    fetch("http://127.0.0.1:8000/myApp/preguntas/", {method: 'POST', body: JSON.stringify(formulario)})
-    .then(response => response.json())
-    .then(json => console.log(json))
-}
-}
-    window.onload=function(){
+  formElem.onsubmit = async (e) => {
+    e.preventDefault();
 
-    var datos;
-    function preguntas_list(data) {
-    let array_preguntas = "";
+    let response = await fetch('preguntasListView', {
+      method: 'POST',
+      body: new FormData(formElem)
+    });
+    let result = await response.json();
 
-    for (let i = 0; i < data.length; i++) {
-    array_preguntas += listado(data[i]);
-  }
-  return array_preguntas;
-}
-
-fetch("http://127.0.0.1:8000/myApp/preguntas/")
-  .then(function (response) {
-    if (response.ok) {
-      return response.text();
-    } else {
-      throw "Error";
-    }
-  })
-  .then(function (data) {
-    vuelta = JSON.parse(data);
-    console.log(vuelta)
-    document.getElementById("div_js").innerHTML = listado(vuelta.preguntas);
-
-  })
-  .catch(function (error) {
-    console.log(error)
-    alert("Error fetch");
-  });
-
-function listado(pregunta) {
-  html = `  <ul>
-            <br>
-            <li> Usuario: ${ pregunta.usuario }</li>
-            <br>
-            <li> Titulo: ${ pregunta.titulo } </li>
-            <br>
-            <li> Mensaje: ${ pregunta.mensaje }</li>
-            <br>
-            </ul>   `
-  return html
-}
-}
+    alert(result.message);
+  };
 </script>
 
 {% endblock %}

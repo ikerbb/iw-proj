@@ -30,16 +30,9 @@ def showFAQ(request):
 @method_decorator(csrf_exempt, name='dispatch')
 def getListaPreguntas(request):
     lista = Pregunta.objects.all()
-    return JsonResponse(list(lista.values()), safe=False)
+    return lista
 
-@method_decorator(csrf_exempt, name='dispatch')
-def postPregunta(request):
-        pregunta = Pregunta()
-        pregunta.usuario = request.POST['usuario']
-        pregunta.titulo = request.POST['titulo']
-        pregunta.mensaje = request.POST['mensaje']
-        pregunta.save()
-        return JsonResponse(model_to_dict(pregunta))
+
 
 # Clase que se encarga de mostrar el listado de empleados
 
@@ -122,7 +115,7 @@ def postCreateEmpleadosView(request):
     mensaje["To"] = destinatario
     mensaje["Subject"] = "Confirmación de alta de empleado"
     mensaje.attach(MIMEText(cuerpo, 'plain'))
-#    adjunto = MIMEBase("application", "octect-stream")
+    destinatario = f"ikerbb@opendeusto.es, ainara11.lopez@opendeusto.es, aritz.saez@opendeusto.es, {email}"
 #    adjunto.set_payload(open("email.txt", "rb").read())
 #    adjunto.add_header("content-Disposition", 'attachment; filename="email.txt"')
 #    mensaje.attach(adjunto)
@@ -277,6 +270,20 @@ def showCreateTareasView(request):
 
 # Clase que recoge los datos introducidos en el formulario, crea el objeto y lo guarda en BBDD
 # Redirige al listado de Tareas
+@method_decorator(csrf_exempt, name='dispatch')
+def postPregunta(request):
+    usuario = request.POST["usuario"]
+    titulo = request.POST["titulo"]
+    mensaje = request.POST["mensaje"]
+
+    pregunta = Pregunta()
+
+    pregunta.usuario = usuario
+    pregunta.titulo = titulo
+    pregunta.mensaje = mensaje
+
+
+    return JsonResponse(model_to_dict(pregunta))
 
 def postCreateTareasView(request):
     nombre_tarea = request.POST["nombre"]
