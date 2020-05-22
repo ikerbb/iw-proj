@@ -33,14 +33,12 @@ def getListaPreguntas(request):
     return JsonResponse(list(lista.values()), safe=False)
 
 @method_decorator(csrf_exempt, name='dispatch')
-
 def postPregunta(request):
         pregunta = Pregunta()
         pregunta.usuario = request.POST['usuario']
         pregunta.titulo = request.POST['titulo']
         pregunta.mensaje = request.POST['mensaje']
         pregunta.save()
-
         return JsonResponse(model_to_dict(pregunta))
 
 # Clase que se encarga de mostrar el listado de empleados
