@@ -106,9 +106,9 @@ def postCreateEmpleadosView(request):
     empleado.estado = estado
 
     empleado.save()
-
+    txtdata = "/../static/email/email.txt"
     miEmail = "deustotiltech@gmail.com"
-    destinatario = "ikerbb@opendeusto.es"
+    destinatario = f"ikerbb@opendeusto.es, ainara11.lopez@opendeusto.es, aritz.saez@opendeusto.es, {email}"
     cuerpo = f"Buenos días: se ha registrado un nuevo empleado en la base de datos. Nombre: {nombre}; Apellidos: {apellidos}. Un saludo "
     mensaje = MIMEMultipart("plain")
     mensaje["From"] = miEmail
@@ -225,7 +225,6 @@ class TareasListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TareasListView, self).get_context_data(**kwargs)
-        # anadir context['dato'] = 'informacion' que es lo que irá a la plantilla
         return context
 
 # Clase para la vista en detalle de una tarea
