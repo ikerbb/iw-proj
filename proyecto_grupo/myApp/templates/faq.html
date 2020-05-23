@@ -18,33 +18,34 @@
 
 
                             <div id="div_js" class="row tm-banner-row">
-                                <form id="formulario_id" method="POST" action="{% url 'registrarPregunta' %}" class="tm-search-form tm-section-pad-2" name="formulario">
 
+                                <form id="formulario_id"  class="tm-search-form tm-section-pad-2" name="formulario">
                                     {% csrf_token %}
                                      <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label style="color:black" >Usuario</label>
-                                            <input name="usuario" type="text" class="form-control" class="inputCity" placeholder="Nombre" required>
+                                            <input name="usuario" id="usuario" type="text" class="form-control"  placeholder="Nombre" required>
                                         </div>
                                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label style="color:black">Titulo</label>
-                                            <input style="height: 100px;max-height: 100px; min-height: 100px" type="text" name="titulo" class="form-control" placeholder="Escribe aquí tu pregunta"></input>
+                                             <input style="height: 100px;max-height: 100px; min-height: 100px"
+                                                    type="text" id="titulo" name="titulo" class="form-control"
+                                                    placeholder="Escribe aquí tu pregunta">
                                         </div>
                                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label style="color:black">Mensaje</label>
-                                            <input style="height: 100px;max-height: 100px; min-height: 100px" id="pregunta" type="text" name="mensaje" class="form-control" placeholder="Escribe aquí tu pregunta"></input>
+                                             <input style="height: 100px;max-height: 100px; min-height: 100px"
+                                                    id="mensaje" type="text" name="mensaje" class="form-control"
+                                                    placeholder="Escribe aquí tu pregunta">
                                         </div>
                                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label for="btnSubmit">&nbsp;</label>
-                                            <button onclick="create" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Enviar pregunta</button>
-                                        </div>
-                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                            <label for="mostrarPreguntas">&nbsp;</label>
-                                            <button onclick="preguntasList" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="mostrarPreguntas">Mostrar preguntas</button>
+                                            <button  class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Enviar pregunta</button>
                                         </div>
                                      </div>
+
                                 </form>
-                                <p id="exito"></p>
+
                             </div>
 
                         </div> <!-- row -->
@@ -54,22 +55,22 @@
         </div>
 
 <script>
-  document.getElementById("formulario_id").addEventListener("submit", Crearobj)
-    function Crearobj(event) {
-    event.preventDefault()
+    const SERVICE_URL = "http://127.0.0.1:8000/myApp/preguntas/";
+    var form = document.getElementById("formulario_id");
+    var loadBtn = document.getElementById("btnSubmit");
+    let formulario = new FormData(form);
 
-    var esto = new FormData(document.getElementById("formulario_id"))
-    console.log(esto)
-     fetch('http://127.0.0.1:8000/myApp/preguntas/', {
-     method :'POST',
+    loadBtn.onclick = loadData;
 
-        body :
-        esto
-            })
-            .then(response => response.json())
-            .then(json => console.log(json))
-            var p=document.getElementById('exito')
-            var text = d
+
+    function loadData() {
+    fetch(SERVICE_URL, {method: 'POST', body: formulario})
+        .then((response) => response.json())
+        .then ((json) => {
+        console.log(json);
+            });
+    }
+    loadData();
 </script>
 
 {% endblock %}

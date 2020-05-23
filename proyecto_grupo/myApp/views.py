@@ -27,11 +27,13 @@ def showInicio(request):
 def showFAQ(request):
     return render(request, "faq.html")
 
+
 @method_decorator(csrf_exempt, name='dispatch')
 class PreguntasView(View):
     def get(self, request):
         lista = Pregunta.objects.all()
         return JsonResponse(list(lista.values()), safe=False)
+
 
     def post(self, request):
         usuario = request.POST['usuario']
@@ -45,8 +47,7 @@ class PreguntasView(View):
         pregunta.mensaje = mensaje
 
         pregunta.save()
-
-        return redirect('faq')
+        return JsonResponse(model_to_dict(pregunta))
 
 # Clase que se encarga de mostrar el listado de empleados
 
@@ -282,6 +283,30 @@ def showCreateTareasView(request):
 
 
 # Clase que recoge los datos introducidos en el formulario, crea el objeto y lo guarda en BBDD
+
+# Redirige al listado de Tareas
+@method_decorator(csrf_exempt, name='dispatch')
+class getListaPreguntas(View):
+    def get(self):
+        #get metod
+        dlist = Pregunta.objects.all()
+        return JsonResponse(list(dlist.values()),safe=False)
+    def post(self, request):
+        usuario = request.POST["usuario"]
+        titulo = request.POST["titulo"]
+        mensaje = request.POST["mensaje"]
+
+        pregunta = Pregunta()
+
+        pregunta.usuario = usuario
+        pregunta.titulo = titulo
+        pregunta.mensaje = mensaje
+
+        pregunta.save()
+
+
+        return JsonResponse(model_to_dict(pregunta))
+
 
 def postCreateTareasView(request):
     nombre_tarea = request.POST["nombre"]
