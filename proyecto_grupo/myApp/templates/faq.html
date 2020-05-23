@@ -18,7 +18,7 @@
 
 
                             <div id="div_js" class="row tm-banner-row">
-                                <form method="POST" action="{% url 'registrarPregunta' %}" class="tm-search-form tm-section-pad-2" name="formulario">
+                                <form id="formulario_id" method="POST" action="{% url 'registrarPregunta' %}" class="tm-search-form tm-section-pad-2" name="formulario">
 
                                     {% csrf_token %}
                                      <div class="form-row tm-search-form-row">
@@ -44,6 +44,7 @@
                                         </div>
                                      </div>
                                 </form>
+                                <p id="exito"></p>
                             </div>
 
                         </div> <!-- row -->
@@ -53,17 +54,22 @@
         </div>
 
 <script>
-  formElem.onsubmit = async (e) => {
-    e.preventDefault();
+  document.getElementById("formulario_id").addEventListener("submit", Crearobj)
+    function Crearobj(event) {
+    event.preventDefault()
 
-    let response = await fetch('preguntasListView', {
-      method: 'POST',
-      body: new FormData(formElem)
-    });
-    let result = await response.json();
+    var esto = new FormData(document.getElementById("formulario_id"))
+    console.log(esto)
+     fetch('http://127.0.0.1:8000/myApp/preguntas/', {
+     method :'POST',
 
-    alert(result.message);
-  };
+        body :
+        esto
+            })
+            .then(response => response.json())
+            .then(json => console.log(json))
+            var p=document.getElementById('exito')
+            var text = d
 </script>
 
 {% endblock %}
