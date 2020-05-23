@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from smtplib import SMTP
 
 from django.forms import model_to_dict
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
@@ -36,15 +36,15 @@ class PreguntasView(View):
 
 
     def post(self, request):
-        usuario = request.POST['usuario']
-        titulo = request.POST['titulo']
-        mensaje = request.POST['mensaje']
+        usuarios = request.POST.get('usuario')
+        titulos = request.POST.get('titulo')
+        mensajes = request.POST.get('mensaje')
 
         pregunta = Pregunta()
 
-        pregunta.usuario = usuario
-        pregunta.titulo = titulo
-        pregunta.mensaje = mensaje
+        pregunta.usuario = usuarios
+        pregunta.titulo = titulos
+        pregunta.mensaje = mensajes
 
         pregunta.save()
         return JsonResponse(model_to_dict(pregunta))
@@ -287,10 +287,10 @@ def showCreateTareasView(request):
 # Redirige al listado de Tareas
 @method_decorator(csrf_exempt, name='dispatch')
 class getListaPreguntas(View):
-    def get(self):
-        #get metod
+    def get(self, request):
         dlist = Pregunta.objects.all()
         return JsonResponse(list(dlist.values()),safe=False)
+
     def post(self, request):
         usuario = request.POST["usuario"]
         titulo = request.POST["titulo"]
@@ -304,8 +304,8 @@ class getListaPreguntas(View):
 
         pregunta.save()
 
-
-        return JsonResponse(model_to_dict(pregunta))
+        return HttpResponse('ok')
+        #return JsonResponse(model_to_dict(pregunta), safe=False)
 
 
 def postCreateTareasView(request):

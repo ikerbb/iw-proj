@@ -14,13 +14,9 @@
                                 <h1 style="color: black"> ¿Cómo se usa la página? </h1>
                                 <p style="color: black"> En esta página se pueden crear proyectos, asignados a un cliente, unos empleados y con unas tareas. Pero, cuidado, <strong> LAS TAREAS SOLO SE PUEDEN CREAR DESPUÉS DE CREAR UN PROYECTO</strong> en el menú de crear Tareas. Además, se pueden crear, ver detalle, ver en listado, editar y eliminar todos los proyectos, tareas, clientes y empleados</p>
                             </form>
-
-
-
                             <div id="div_js" class="row tm-banner-row">
-
                                 <form id="formulario_id"  class="tm-search-form tm-section-pad-2" name="formulario">
-                                    {% csrf_token %}
+                                    <!--{% csrf_token %}-->
                                      <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label style="color:black" >Usuario</label>
@@ -43,35 +39,33 @@
                                             <button  class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Enviar pregunta</button>
                                         </div>
                                      </div>
-
                                 </form>
-
                             </div>
-
                         </div> <!-- row -->
                     </div>  <!-- .container -->
                 <!-- .tm-container-outer -->
-                </div> </section>
+                </div>
+            </section>
         </div>
-
 <script>
     const SERVICE_URL = "http://127.0.0.1:8000/myApp/preguntas/";
-    var form = document.getElementById("formulario_id");
-    var loadBtn = document.getElementById("btnSubmit");
-    let formulario = new FormData(form);
+    const myForm = document.getElementById('formulario_id');
+    myForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    loadBtn.onclick = loadData;
+        const formData = new FormData(this);
 
-
-    function loadData() {
-    fetch(SERVICE_URL, {method: 'POST', body: formulario})
-        .then((response) => response.json())
-        .then ((json) => {
-        console.log(json);
-            });
-    }
-    loadData();
+        fetch(SERVICE_URL, {method: 'post', body: formData})
+        .then(function (response){
+            return response.text();
+        })
+        .then(function (text){
+            console.log(text);
+        })
+        .catch(function (error) {
+            console.error(error);
+        })
+    });
 </script>
-
 {% endblock %}
 

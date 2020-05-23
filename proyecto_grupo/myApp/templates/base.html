@@ -21,7 +21,8 @@ http://www.templatemo.com/tm-511-journey
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick.css' %}"/>
     <link rel="stylesheet" type="{% static 'css' %}" href="{% static 'slick/slick-theme.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">                        <!-- Templatemo style -->
-    <link rel="stylesheet" href="{% static  'js/bootstrap.min.js' %}">
+    <link rel="script" href="{% static 'js/bootstrap.min.js' %}">
+    <link rel="script" href="{% static 'js/script.js' %}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -95,17 +96,11 @@ http://www.templatemo.com/tm-511-journey
                                         <a href="{% url 'faq' %}"><button class="dropbtn"> Ver FAQ</button></a>
                                     </li>
                                 </div>
-
-
-
-
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div><br>
-
-
         </div> <!-- .tm-top-bar -->
           {% block content %} {% endblock %}
        </div>

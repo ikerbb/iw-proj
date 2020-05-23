@@ -127,3 +127,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'deustotiltech@gmail.com'
 EMAIL_HOST_PASSWORD = 'ikerainaraaritz'
 EMAIL_PORT = 587
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication'
+    ]
+}
