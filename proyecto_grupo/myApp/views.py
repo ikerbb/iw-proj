@@ -107,6 +107,9 @@ def showCreateEmpleadosView(request):
 # Una vez hecho el guardado en BBDD, redirige al usuario a la pagina con el listado de empleados
 
 def postCreateEmpleadosView(request):
+    asunto = 'Alta de empleado'
+    objeto = 'empleado'
+
     dni = request.POST["dni"]
     nombre = request.POST["nombre"]
     apellidos = request.POST["apellidos"]
@@ -124,29 +127,28 @@ def postCreateEmpleadosView(request):
     empleado.estado = estado
 
     empleado.save()
-    txtdata = "/../static/email/email.txt"
-    miEmail = "deustotiltech@gmail.com"
-    destinatario = f"ikerbb@opendeusto.es, ainara11.lopez@opendeusto.es, aritz.saez@opendeusto.es, {email}"
-    cuerpo = f"Buenos días: se ha registrado un nuevo empleado en la base de datos. Nombre: {nombre}; Apellidos: {apellidos}. Un saludo "
-    mensaje = MIMEMultipart("plain")
-    mensaje["From"] = miEmail
-    mensaje["To"] = destinatario
-    mensaje["Subject"] = "Confirmación de alta de empleado"
-    mensaje.attach(MIMEText(cuerpo, 'plain'))
-    destinatario = f"ikerbb@opendeusto.es, ainara11.lopez@opendeusto.es, aritz.saez@opendeusto.es, {email}"
-#    adjunto.set_payload(open("email.txt", "rb").read())
-#    adjunto.add_header("content-Disposition", 'attachment; filename="email.txt"')
-#    mensaje.attach(adjunto)
-    smtp = SMTP("smtp.gmail.com")
-    smtp.starttls()
-    smtp.login(miEmail, "ikerainaraaritz")
-    smtp.sendmail(miEmail, destinatario, mensaje.as_string())
-    smtp.quit()
+
+    mail(asunto, nombre, apellidos, objeto)
 
     return redirect('empleadosListView')
 
+#Funcion para el envío de emails
 
-
+def mail(asunto, nombre, apellidos, objeto):
+    miEmail = "deustotiltech@gmail.com"
+    miContrasena = "ikerainaraaritz"
+    destinatario = f"ikerbb@opendeusto.es, ainara11.lopez@opendeusto.es, aritz.saez@opendeusto.es"
+    cuerpo = f"Buenos días: se ha registrado un nuevo {objeto} en la base de datos. Nombre: {nombre}; Apellidos/Descripción/Empresa: {apellidos}. Un saludo "
+    mensaje = MIMEMultipart("plain")
+    mensaje["From"] = miEmail
+    mensaje["To"] = destinatario
+    mensaje["Subject"] = asunto
+    mensaje.attach(MIMEText(cuerpo, 'plain'))
+    smtp = SMTP("smtp.gmail.com")
+    smtp.starttls()
+    smtp.login(miEmail, miContrasena)
+    smtp.sendmail(miEmail, destinatario, mensaje.as_string())
+    smtp.quit()
 
 # Clase para la visualizacion del listado de Proyectos
 
@@ -204,6 +206,9 @@ def showCreateProyectosView(request):
 # Al terminar, redirige al listado de Proyectos
 
 def postCreateProyectosView(request):
+    asunto = 'Alta de proyecto'
+    objeto = 'proyecto'
+
     nombre = request.POST["nombre"]
     descripcion = request.POST["descripcion"]
     fecha_inicio = request.POST["fecha_inicio"]
@@ -228,6 +233,8 @@ def postCreateProyectosView(request):
         empleado = Empleado.objects.get(pk=emp)
         proyecto.empleados.add(empleado)
     proyecto.save()
+
+    mail(asunto,nombre,descripcion,objeto)
 
     return redirect('proyectosListView')
 
@@ -307,11 +314,16 @@ class getListaPreguntas(View):
 
         pregunta.save()
 
+
         return HttpResponse('ok')
         #return JsonResponse(model_to_dict(pregunta), safe=False)
 
 
 def postCreateTareasView(request):
+
+    asunto = 'Alta de tarea'
+    objeto = 'tarea'
+
     nombre_tarea = request.POST["nombre"]
     proyecto = request.POST["proyecto"]
     descripcion = request.POST["descripcion"]
@@ -335,6 +347,8 @@ def postCreateTareasView(request):
     tarea.prioridad = prioridad
     tarea.estado = estado
     tarea.notas = notas
+
+    mail(asunto,nombre_tarea,descripcion,objeto)
 
     tarea.save()
 
@@ -396,6 +410,10 @@ def showCreateClientesView(request):
 # Redirige al listado de clientes
 
 def postCreateClientesView(request):
+
+    asunto = 'Alta de cliente'
+    objeto = 'cliente'
+
     nombre = request.POST["nombre"]
     empresa = request.POST["empresa"]
     telefono = request.POST["telefono"]
@@ -411,5 +429,7 @@ def postCreateClientesView(request):
     cliente.datos_adicionales = datos_adicionales
 
     cliente.save()
+
+    mail(asunto,nombre,empresa,objeto)
 
     return redirect('clientesListView')
