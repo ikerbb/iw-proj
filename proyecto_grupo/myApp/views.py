@@ -27,16 +27,24 @@ def showInicio(request):
 def showFAQ(request):
     return render(request, "faq.html")
 
+# Función que muestra la ventana donde mostraremos el listado de preguntas
+
 def showFAQlist(request):
     return render(request, "mostrarPreguntas.html")
 
 
+# Clase para el envío y recepción de datos a través de JS
+
 @method_decorator(csrf_exempt, name='dispatch')
 class PreguntasView(View):
+
+    #Recepción de datos
+
     def get(self, request):
         lista = Pregunta.objects.all()
         return JsonResponse(list(lista.values()), safe=False)
 
+    #Envío de datos
 
     def post(self, request):
         usuarios = request.POST.get('usuario')
