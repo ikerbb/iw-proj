@@ -93,7 +93,11 @@ http://www.templatemo.com/tm-511-journey
                                 </div>
                                 <div class="dropdown">
                                     <li class="nav-item">
-                                        <a href="{% url 'faq' %}"><button class="dropbtn"> Ver FAQ</button></a>
+                                        <button class="dropbtn">FAQ</button>
+                                        <div class="dropdown-content">
+                                        <a href="{% url 'faq' %}">FAQ y hacer pregunta</a>
+                                        <a href="{% url 'faqlist' %}">Ver preguntas</a>
+                                        </div>
                                     </li>
                                 </div>
                             </ul>

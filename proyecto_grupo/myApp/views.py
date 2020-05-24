@@ -27,6 +27,9 @@ def showInicio(request):
 def showFAQ(request):
     return render(request, "faq.html")
 
+def showFAQlist(request):
+    return render(request, "mostrarPreguntas.html")
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class PreguntasView(View):

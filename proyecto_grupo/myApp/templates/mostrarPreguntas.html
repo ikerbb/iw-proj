@@ -1,0 +1,43 @@
+{% extends "base.html "%}
+{% load static %}
+{% block content %}
+    <div class="tm-page-wrap mx-auto">
+            <section class="tm-banner">
+                <div class="tm-container-outer tm-banner-bg">
+                    <div class="container">
+                        <div class="row tm-banner-row" id="tm-section-search">
+                            <table id="tablaScript">
+                                <thead>
+                                    <tr>
+                                        <th style="color:white">Usuario</th>
+                                        <th style="color:white">Título</th>
+                                        <th style="color:white">Mensaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </div>
+<script>
+    const SERVICE_URL2 = "http://127.0.0.1:8000/myApp/preguntas/";
+    function traemelo() {
+        fetch(SERVICE_URL2)
+        .then((response) => response.json())
+        .then((json) => {
+            for (let x of json) {
+            var contenido = '<td>' + x.usuario + '</td> <td>' + x.titulo + '</td> <td>' + x.mensaje + '</td>'
+            console.log(contenido)
+            document.getElementById("tablaScript").insertRow(-1).innerHTML = contenido
+            }
+        });
+    }
+    traemelo();
+</script>
+
+{% endblock %}
